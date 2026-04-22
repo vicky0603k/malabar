@@ -42,7 +42,7 @@ export default function HeroSection({ ready }: { ready: boolean }) {
         }}
       >
         <img
-          src="https://static.wixstatic.com/media/cef78c_4a2273bbc2ef48d7a4ee0baf4a127ce9~mv2.png"
+          src="https://static.wixstatic.com/media/cef78c_9dee5e376c7d4888a0b1dd9174b9e7ef~mv2.jpg"
           alt=""
           style={{
             width: '100%',
