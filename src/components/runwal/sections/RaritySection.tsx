@@ -1,59 +1,62 @@
-﻿// RARITY â€” Full-bleed cinematic. Centered statement. Minimal, powerful.
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+﻿// RARITY — Light ivory. Large centered statement. No dark overlay, no image.
+// Power through restraint and whitespace, not through darkness.
+// Thin gold frame. Ghost monogram. Clean and calm.
+import React from 'react';
 import { C, EASE } from '../tokens';
-import { ClipReveal, FadeUp, LineReveal } from '../shared';
+import { ClipReveal, FadeUp } from '../shared';
 
 export default function RaritySection() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%']);
-
   return (
-    <section ref={ref} style={{
-      height: '100vh', minHeight: 700,
-      background: C.charcoal,
-      position: 'relative', overflow: 'hidden',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    <section style={{
+      minHeight: '100vh',
+      background: C.ivory,
+      position: 'relative',
+      overflow: 'hidden',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     }}>
-      <motion.div style={{ position: 'absolute', inset: 0, y: imgY }}>
-        <img
-          src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80&auto=format&fit=crop"
-          alt=""
-          style={{ width: '100%', height: '120%', objectFit: 'cover', objectPosition: 'center 50%', display: 'block' }}
-        />
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'rgba(43,39,37,0.88)',
-        }} />
-      </motion.div>
+      {/* Ghost monogram */}
+      <div className="monogram" style={{
+        fontSize: 'clamp(220px,32vw,440px)',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%,-50%)',
+        WebkitTextStroke: '1px rgba(198,164,90,0.07)',
+      }}>
+        RM
+      </div>
 
-      <div className="orb" style={{
-        width: 600, height: 600,
-        background: `radial-gradient(circle, rgba(198,164,90,0.06) 0%, transparent 70%)`,
-        top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
-        zIndex: 1,
+      {/* Thin gold frame — inset */}
+      <div style={{
+        position: 'absolute',
+        inset: 'clamp(24px,4vw,56px)',
+        border: `1px solid rgba(198,164,90,0.14)`,
+        pointerEvents: 'none',
       }} />
 
+      {/* Content */}
       <div style={{
-        position: 'relative', zIndex: 2,
+        position: 'relative', zIndex: 1,
         textAlign: 'center',
-        padding: 'clamp(60px,8vw,100px) clamp(24px,6vw,96px)',
-        maxWidth: 720,
+        padding: 'clamp(60px,8vw,100px) clamp(32px,6vw,96px)',
+        maxWidth: 760,
       }}>
         <FadeUp delay={0.05}>
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 36 }}>
-            <LineReveal width={40} delay={0.1} color="rgba(198,164,90,0.5)" />
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}>
+            <span style={{ display: 'block', width: 36, height: 1, background: C.gold, opacity: 0.45 }} />
           </div>
         </FadeUp>
 
         <ClipReveal delay={0.15}>
           <h2 style={{
             fontFamily: 'Cormorant Garamond, serif',
-            fontSize: 'clamp(36px,5.5vw,80px)',
-            fontWeight: 300, fontStyle: 'italic',
-            color: C.ivory, lineHeight: 1.1,
-            marginBottom: 12,
+            fontSize: 'clamp(32px,5vw,72px)',
+            fontWeight: 300,
+            fontStyle: 'italic',
+            color: C.charcoal,
+            lineHeight: 1.1,
+            marginBottom: 10,
           }}>
             You, 10 others like you,
           </h2>
@@ -61,35 +64,43 @@ export default function RaritySection() {
         <ClipReveal delay={0.25}>
           <h2 style={{
             fontFamily: 'Cormorant Garamond, serif',
-            fontSize: 'clamp(36px,5.5vw,80px)',
-            fontWeight: 300, fontStyle: 'italic',
-            color: C.gold, lineHeight: 1.1,
+            fontSize: 'clamp(32px,5vw,72px)',
+            fontWeight: 300,
+            fontStyle: 'italic',
+            color: C.gold,
+            lineHeight: 1.1,
           }}>
             and absolutely no one else.
           </h2>
         </ClipReveal>
 
-        <FadeUp delay={0.4} style={{ marginTop: 40 }}>
+        <FadeUp delay={0.4} style={{ marginTop: 44 }}>
           <p style={{
-            fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
-            fontWeight: 300, color: 'rgba(247,244,239,0.55)',
-            lineHeight: 1.95, maxWidth: 480, margin: '0 auto 12px',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '0.8rem',
+            fontWeight: 300,
+            color: C.mid,
+            lineHeight: 1.95,
+            maxWidth: 460,
+            margin: '0 auto 10px',
           }}>
             Runwal Malabar is not simply a residence.
           </p>
           <p style={{
-            fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
-            fontWeight: 300, color: 'rgba(247,244,239,0.55)',
-            lineHeight: 1.95, maxWidth: 480, margin: '0 auto',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '0.8rem',
+            fontWeight: 300,
+            color: C.mid,
+            lineHeight: 1.95,
+            maxWidth: 460,
+            margin: '0 auto',
           }}>
-            It is a private chapter in Mumbai's skyline â€” written for the very few.
+            It is a private chapter in Mumbai's skyline — written for the very few.
           </p>
         </FadeUp>
 
         <FadeUp delay={0.55} style={{ marginTop: 52 }}>
-          <a href="#enquire" className="btn-gold" style={{ borderColor: 'rgba(198,164,90,0.6)', color: C.ivory }}>
-            Own Your Chapter
-          </a>
+          <a href="#enquire" className="btn-gold">Own Your Chapter</a>
         </FadeUp>
       </div>
     </section>

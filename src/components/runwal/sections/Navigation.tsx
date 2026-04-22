@@ -1,4 +1,5 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿// Navigation — ultra-minimal, transparent to frosted ivory on scroll
+import React, { useEffect, useState } from 'react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { C, EASE } from '../tokens';
 
@@ -9,71 +10,71 @@ export default function Navigation({ ready }: { ready: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => scrollY.on('change', v => setScrolled(v > 80)), [scrollY]);
+  useEffect(() => scrollY.on('change', v => setScrolled(v > 60)), [scrollY]);
 
   return (
     <>
       <motion.header
         initial={{ opacity: 0 }}
         animate={ready ? { opacity: 1 } : {}}
-        transition={{ duration: 1.2, delay: 0.3, ease: EASE }}
+        transition={{ duration: 1, delay: 0.2, ease: EASE }}
         style={{
           position: 'fixed', top: 0, left: 0, right: 0, zIndex: 900,
-          padding: `${scrolled ? 14 : 24}px clamp(20px,5vw,72px)`,
+          padding: `${scrolled ? 14 : 22}px clamp(20px,5vw,72px)`,
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          background: scrolled ? 'rgba(247,244,239,0.92)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(16px)' : 'none',
+          background: scrolled ? 'rgba(247,244,239,0.94)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(20px)' : 'none',
           borderBottom: scrolled ? `1px solid ${C.line}` : 'none',
-          transition: 'padding .5s ease, background .5s ease, border .5s ease',
+          transition: 'all 0.5s ease',
         }}
       >
         {/* Logo */}
         <a href="#" style={{ textDecoration: 'none', lineHeight: 1 }}>
           <div style={{
             fontFamily: 'Inter, sans-serif',
-            fontSize: 10,
-            letterSpacing: '0.3em',
+            fontSize: 9,
+            letterSpacing: '0.36em',
             textTransform: 'uppercase',
-            color: scrolled ? C.charcoal : 'rgba(247,244,239,0.7)',
+            color: scrolled ? C.taupe : 'rgba(247,244,239,0.65)',
             transition: 'color .4s ease',
           }}>
             RUNWAL
           </div>
           <div style={{
             fontFamily: 'Cormorant, serif',
-            fontSize: 18,
+            fontSize: 17,
             fontWeight: 300,
             fontStyle: 'italic',
             color: C.gold,
             letterSpacing: '0.04em',
-            marginTop: -2,
+            marginTop: -1,
           }}>
             Malabar
           </div>
         </a>
 
         {/* Desktop links */}
-        <nav className="desk-only" style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
+        <nav className="desk-only" style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
           {LINKS.map(l => (
             <a
               key={l}
               href={`#${l.toLowerCase()}`}
               style={{
                 fontFamily: 'Inter, sans-serif',
-                fontSize: '0.58rem',
+                fontSize: '0.56rem',
                 letterSpacing: '0.2em',
                 textTransform: 'uppercase',
-                color: scrolled ? 'rgba(43,39,37,0.6)' : 'rgba(247,244,239,0.6)',
+                color: scrolled ? 'rgba(43,39,37,0.55)' : 'rgba(247,244,239,0.6)',
                 textDecoration: 'none',
                 transition: 'color .3s ease',
               }}
               onMouseEnter={e => (e.currentTarget.style.color = C.gold)}
-              onMouseLeave={e => (e.currentTarget.style.color = scrolled ? 'rgba(43,39,37,0.6)' : 'rgba(247,244,239,0.6)')}
+              onMouseLeave={e => (e.currentTarget.style.color = scrolled ? 'rgba(43,39,37,0.55)' : 'rgba(247,244,239,0.6)')}
             >
               {l}
             </a>
           ))}
-          <a href="#enquire" className="btn-gold" style={{ padding: '9px 20px', fontSize: '0.56rem' }}>
+          <a href="#enquire" className="btn-gold" style={{ padding: '9px 20px', fontSize: '0.54rem' }}>
             Private Preview
           </a>
         </nav>
@@ -102,13 +103,13 @@ export default function Navigation({ ready }: { ready: boolean }) {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.35 }}
+            transition={{ duration: 0.3 }}
             style={{
-              position: 'fixed', top: 60, left: 0, right: 0, zIndex: 899,
+              position: 'fixed', top: 56, left: 0, right: 0, zIndex: 899,
               background: C.ivory,
-              padding: '28px clamp(20px,5vw,72px)',
+              padding: '24px clamp(20px,5vw,72px)',
               borderBottom: `1px solid ${C.line}`,
-              display: 'flex', flexDirection: 'column', gap: 22,
+              display: 'flex', flexDirection: 'column', gap: 20,
             }}
           >
             {LINKS.map(l => (
@@ -118,7 +119,7 @@ export default function Navigation({ ready }: { ready: boolean }) {
                 onClick={() => setOpen(false)}
                 style={{
                   fontFamily: 'Inter, sans-serif',
-                  fontSize: '0.65rem',
+                  fontSize: '0.62rem',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
                   color: C.charcoal,

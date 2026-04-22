@@ -169,7 +169,7 @@ export default function EnquirySection() {
               />
             </div>
 
-            <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start' }}>
+            <button type="submit" className="btn-gold" style={{ alignSelf: 'flex-start' }}>
               Schedule a Private Consultation
             </button>
           </form>

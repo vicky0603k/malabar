@@ -34,7 +34,7 @@ export default function LobbySection() {
         {/* Bottom fade */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, transparent 40%, #F7F4EF 100%)',
+          background: "linear-gradient(to bottom, transparent 40%, #E4DDD4 100%)",
         }} />
       </div>
 

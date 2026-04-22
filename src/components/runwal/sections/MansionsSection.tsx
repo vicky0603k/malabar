@@ -144,7 +144,7 @@ export default function MansionsSection() {
         </FadeUp>
 
         <FadeUp delay={0.7} style={{ marginTop: 44 }}>
-          <a href="#enquire" className="btn-primary">Enquire for Floor Plans</a>
+          <a href="#enquire" className="btn-gold">Enquire for Floor Plans</a>
         </FadeUp>
       </div>
 
