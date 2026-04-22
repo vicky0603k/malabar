@@ -38,7 +38,7 @@ export default function ArrivalSection() {
         {/* Right edge gradient */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to right, transparent 60%, rgba(230,222,210,1) 100%)',
+          background: 'linear-gradient(to right, transparent 60%, #ECE7DF 100%)',
         }} />
         {/* Gold frame */}
         <div style={{

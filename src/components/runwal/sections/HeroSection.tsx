@@ -1,4 +1,4 @@
-// HERO — Bright luxury editorial. Soft daylight. Premium architecture campaign.
+﻿// HERO — Bright luxury editorial. Soft daylight. Premium architecture campaign.
 // New palette: ivory #F7F4EF base, gold #C6A45A accent, charcoal #2B2725 text.
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
