@@ -1,43 +1,36 @@
+// ADDRESS — Ivory panel. Oversized architectural SVG bleeds behind text.
+// Asymmetric: headline top-right, body bottom-left. Diagonal visual tension.
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Colors as C } from '../types';
-import { Reveal, Eyebrow, DisplayHeading, BodyCopy } from '../shared';
+import { C, EASE } from '../tokens';
+import { ClipReveal, FadeUp, LineReveal } from '../shared';
 
-// Architectural tower sketch SVG
-function TowerSketch() {
+function ArchSketch() {
   return (
-    <svg
-      width="260"
-      height="380"
-      viewBox="0 0 260 380"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ display: 'block' }}
-    >
-      {/* Main tower body */}
-      <rect x="55" y="30" width="150" height="340" stroke={C.gold} strokeWidth="0.7" />
-      {/* Inner frame */}
-      <rect x="65" y="40" width="130" height="320" stroke={C.gold} strokeWidth="0.3" strokeDasharray="3 6" opacity="0.5" />
-      {/* Roof spire */}
-      <polygon points="55,30 130,4 205,30" stroke={C.gold} strokeWidth="0.7" fill="none" />
-      <line x1="130" y1="4" x2="130" y2="30" stroke={C.gold} strokeWidth="0.4" />
-      {/* Floor lines */}
-      {[80, 120, 160, 200, 240, 280, 320].map((y) => (
-        <line key={y} x1="55" y1={y} x2="205" y2={y} stroke={C.gold} strokeWidth="0.3" opacity="0.4" />
+    <svg viewBox="0 0 320 480" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style={{ width: '100%', height: '100%', display: 'block' }}>
+      {/* Tower outline */}
+      <rect x="80" y="40" width="160" height="420" stroke={C.gold} strokeWidth="0.6" />
+      {/* Spire */}
+      <polygon points="80,40 160,8 240,40" stroke={C.gold} strokeWidth="0.6" fill="none" />
+      <line x1="160" y1="8" x2="160" y2="40" stroke={C.gold} strokeWidth="0.4" />
+      {/* Floor plates */}
+      {[80,120,160,200,240,280,320,360,400].map(y => (
+        <line key={y} x1="80" y1={y} x2="240" y2={y} stroke={C.gold} strokeWidth="0.25" opacity="0.35" />
       ))}
-      {/* Windows left column */}
-      {[48, 88, 128, 168, 208, 248, 288].map((y) => (
-        <rect key={`wl-${y}`} x="72" y={y} width="44" height="26" stroke={C.gold} strokeWidth="0.4" fill="none" opacity="0.6" />
+      {/* Window grid left */}
+      {[50,90,130,170,210,250,290,330,370].map(y => (
+        <rect key={`l${y}`} x="96" y={y} width="48" height="24" stroke={C.gold} strokeWidth="0.35" fill="none" opacity="0.5" />
       ))}
-      {/* Windows right column */}
-      {[48, 88, 128, 168, 208, 248, 288].map((y) => (
-        <rect key={`wr-${y}`} x="144" y={y} width="44" height="26" stroke={C.gold} strokeWidth="0.4" fill="none" opacity="0.6" />
+      {/* Window grid right */}
+      {[50,90,130,170,210,250,290,330,370].map(y => (
+        <rect key={`r${y}`} x="176" y={y} width="48" height="24" stroke={C.gold} strokeWidth="0.35" fill="none" opacity="0.5" />
       ))}
-      {/* Center vertical */}
-      <line x1="130" y1="30" x2="130" y2="370" stroke={C.gold} strokeWidth="0.25" strokeDasharray="2 5" opacity="0.3" />
-      {/* Ground line */}
-      <line x1="20" y1="370" x2="240" y2="370" stroke={C.gold} strokeWidth="0.7" />
-      <line x1="0" y1="376" x2="260" y2="376" stroke={C.gold} strokeWidth="0.3" opacity="0.5" />
+      {/* Ground */}
+      <line x1="40" y1="460" x2="280" y2="460" stroke={C.gold} strokeWidth="0.6" />
+      <line x1="0" y1="468" x2="320" y2="468" stroke={C.gold} strokeWidth="0.25" opacity="0.4" />
+      {/* Center axis */}
+      <line x1="160" y1="40" x2="160" y2="460" stroke={C.gold} strokeWidth="0.2" strokeDasharray="3 6" opacity="0.25" />
     </svg>
   );
 }
@@ -46,116 +39,125 @@ export default function AddressSection() {
   return (
     <section
       id="address"
-      className="rm-section"
       style={{
-        background: C.beige,
-        display: 'flex',
-        alignItems: 'center',
-        padding: 'clamp(80px, 12vw, 160px) clamp(24px, 7vw, 112px)',
-        overflow: 'hidden',
+        minHeight: '100vh', background: C.ivory,
+        position: 'relative', overflow: 'hidden',
+        display: 'flex', alignItems: 'center',
       }}
     >
-      {/* Decorative gold frames */}
-      <div className="rm-gold-frame" style={{ top: '72px', right: '80px', width: '300px', height: '380px' }} />
-      <div className="rm-gold-frame" style={{ top: '84px', right: '92px', width: '276px', height: '356px', opacity: 0.12 }} />
-
-      {/* Architectural sketch — right side */}
+      {/* Sketch — large, faded, bleeds right */}
       <motion.div
-        initial={{ opacity: 0, x: 50 }}
+        initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
-        className="rm-hide-mobile"
+        transition={{ duration: 2, ease: EASE }}
         style={{
-          position: 'absolute',
-          right: 'clamp(24px, 7vw, 112px)',
-          top: '50%',
+          position: 'absolute', right: '-4%', top: '50%',
           transform: 'translateY(-50%)',
-          opacity: 0.18,
-          zIndex: 0,
+          width: 'clamp(260px,32vw,420px)',
+          height: 'auto', opacity: 0.12,
+          pointerEvents: 'none',
         }}
       >
-        <TowerSketch />
+        <ArchSketch />
       </motion.div>
 
-      {/* Content */}
-      <div style={{ maxWidth: '580px', position: 'relative', zIndex: 1 }}>
-        <Reveal>
-          <Eyebrow label="The Address" />
-        </Reveal>
+      {/* Monogram — very faint */}
+      <div className="monogram" style={{
+        fontSize: 'clamp(200px,28vw,380px)',
+        left: '-60px', bottom: '-40px',
+      }}>
+        M
+      </div>
 
-        <Reveal delay={0.1}>
-          <DisplayHeading style={{ marginBottom: '40px' }}>
-            An address for the<br />city's most powerful.
-          </DisplayHeading>
-        </Reveal>
+      {/* Content — asymmetric layout */}
+      <div style={{
+        position: 'relative', zIndex: 1,
+        width: '100%',
+        padding: 'clamp(80px,12vw,160px) clamp(24px,6vw,96px)',
+      }}>
+        {/* Eyebrow — top right */}
+        <FadeUp style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 'clamp(40px,6vw,80px)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+            <span className="eyebrow">The Address</span>
+            <LineReveal width={36} delay={0.1} />
+          </div>
+        </FadeUp>
 
-        <Reveal delay={0.2}>
-          <BodyCopy style={{ marginBottom: '18px' }}>
-            Once associated with nobility and influence, Malabar Hill remains Mumbai's most aristocratic address.
-          </BodyCopy>
-          <BodyCopy>
-            Runwal Malabar places you beside one of the city's most iconic precincts, where prestige is not announced — it is understood.
-          </BodyCopy>
-        </Reveal>
+        {/* Headline — right-aligned, massive */}
+        <div style={{ textAlign: 'right', marginBottom: 'clamp(48px,7vw,96px)' }}>
+          <ClipReveal delay={0.1}>
+            <h2 style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: 'clamp(36px,5.5vw,80px)',
+              fontWeight: 300, fontStyle: 'italic',
+              color: C.charcoal, lineHeight: 1.1,
+              letterSpacing: '-0.01em',
+            }}>
+              An address for the
+            </h2>
+          </ClipReveal>
+          <ClipReveal delay={0.2}>
+            <h2 style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: 'clamp(36px,5.5vw,80px)',
+              fontWeight: 300, fontStyle: 'italic',
+              color: C.gold, lineHeight: 1.1,
+              letterSpacing: '-0.01em',
+            }}>
+              city's most powerful.
+            </h2>
+          </ClipReveal>
+        </div>
 
-        {/* Location callout */}
-        <Reveal delay={0.35}>
-          <div
-            style={{
-              marginTop: '52px',
-              display: 'flex',
-              alignItems: 'stretch',
-              gap: '22px',
-            }}
-          >
-            <span
-              style={{
-                display: 'block',
-                width: '1px',
-                background: `linear-gradient(to bottom, ${C.gold}, transparent)`,
-                flexShrink: 0,
-                minHeight: '70px',
-              }}
-            />
-            <div>
-              <div
-                className="rm-font-display"
-                style={{
-                  fontSize: '0.8rem',
-                  fontStyle: 'italic',
-                  color: C.gold,
-                  marginBottom: '6px',
-                  letterSpacing: '0.04em',
-                }}
-              >
+        {/* Body — bottom left, offset */}
+        <div style={{
+          display: 'flex', gap: 'clamp(32px,5vw,72px)',
+          alignItems: 'flex-start', flexWrap: 'wrap',
+        }}>
+          <FadeUp delay={0.3} style={{ maxWidth: 420 }}>
+            <p style={{
+              fontFamily: 'Inter, sans-serif', fontSize: '0.82rem',
+              fontWeight: 300, color: 'rgba(58,53,47,0.65)',
+              lineHeight: 1.95, letterSpacing: '0.03em', marginBottom: 16,
+            }}>
+              Once associated with nobility and influence, Malabar Hill remains Mumbai's most aristocratic address.
+            </p>
+            <p style={{
+              fontFamily: 'Inter, sans-serif', fontSize: '0.82rem',
+              fontWeight: 300, color: 'rgba(58,53,47,0.65)',
+              lineHeight: 1.95, letterSpacing: '0.03em',
+            }}>
+              Runwal Malabar places you beside one of the city's most iconic precincts, where prestige is not announced — it is understood.
+            </p>
+          </FadeUp>
+
+          {/* Location callout — isolated typographic block */}
+          <FadeUp delay={0.45}>
+            <div style={{ paddingLeft: 24, borderLeft: `1px solid rgba(184,149,76,0.3)` }}>
+              <div style={{
+                fontFamily: 'Cormorant Garamond, serif',
+                fontSize: '0.75rem', fontStyle: 'italic',
+                color: C.gold, marginBottom: 8, letterSpacing: '0.04em',
+              }}>
                 Next to
               </div>
-              <div
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '0.72rem',
-                  letterSpacing: '0.18em',
-                  color: C.charcoal,
-                  textTransform: 'uppercase',
-                  marginBottom: '5px',
-                }}
-              >
+              <div style={{
+                fontFamily: 'Inter, sans-serif', fontSize: '0.7rem',
+                letterSpacing: '0.18em', color: C.charcoal,
+                textTransform: 'uppercase', marginBottom: 6,
+              }}>
                 The Governor's Estate
               </div>
-              <div
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '0.65rem',
-                  letterSpacing: '0.1em',
-                  color: C.taupe,
-                }}
-              >
-                Malabar Hill, Mumbai — 400 006
+              <div style={{
+                fontFamily: 'Inter, sans-serif', fontSize: '0.62rem',
+                letterSpacing: '0.1em', color: C.taupe,
+              }}>
+                Malabar Hill, Mumbai
               </div>
             </div>
-          </div>
-        </Reveal>
+          </FadeUp>
+        </div>
       </div>
     </section>
   );

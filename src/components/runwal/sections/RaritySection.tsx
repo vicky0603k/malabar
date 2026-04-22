@@ -1,134 +1,96 @@
+// RARITY — Full-bleed cinematic. Centered statement. Minimal, powerful.
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Colors as C } from '../types';
-import { Reveal } from '../shared';
+import { C, EASE } from '../tokens';
+import { ClipReveal, FadeUp, LineReveal } from '../shared';
 
 export default function RaritySection() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
+  const imgY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%']);
 
   return (
-    <section
-      ref={ref}
-      className="rm-section"
-      style={{
-        background: C.charcoal,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        padding: 'clamp(80px, 14vw, 180px) clamp(24px, 7vw, 112px)',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Parallax background */}
-      <motion.div style={{ position: 'absolute', inset: 0, y: imgY, zIndex: 0 }}>
+    <section ref={ref} style={{
+      height: '100vh', minHeight: 700,
+      background: C.charcoal,
+      position: 'relative', overflow: 'hidden',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      <motion.div style={{ position: 'absolute', inset: 0, y: imgY }}>
         <img
           src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80&auto=format&fit=crop"
-          alt="Mumbai skyline at dusk"
-          style={{ width: '100%', height: '120%', objectFit: 'cover', objectPosition: 'center 60%', display: 'block' }}
+          alt=""
+          style={{ width: '100%', height: '120%', objectFit: 'cover', objectPosition: 'center 50%', display: 'block' }}
         />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'rgba(58,53,47,0.88)',
-          }}
-        />
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'rgba(58,53,47,0.88)',
+        }} />
       </motion.div>
 
-      {/* Ambient orb */}
-      <div
-        className="rm-orb"
-        style={{
-          width: '600px',
-          height: '600px',
-          background: `radial-gradient(circle, rgba(184,149,76,0.07) 0%, transparent 70%)`,
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          zIndex: 1,
-        }}
-      />
+      <div className="orb" style={{
+        width: 600, height: 600,
+        background: `radial-gradient(circle, rgba(184,149,76,0.06) 0%, transparent 70%)`,
+        top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+        zIndex: 1,
+      }} />
 
-      {/* Decorative frames */}
-      <div className="rm-gold-frame" style={{ top: '60px', left: '60px', width: '120px', height: '120px', opacity: 0.2, zIndex: 1 }} />
-      <div className="rm-gold-frame" style={{ bottom: '60px', right: '60px', width: '120px', height: '120px', opacity: 0.2, zIndex: 1 }} />
-
-      {/* Content */}
-      <div style={{ position: 'relative', zIndex: 2, maxWidth: '760px' }}>
-        {/* Gold rule */}
-        <Reveal>
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px' }}>
-            <span style={{ display: 'block', width: '48px', height: '1px', background: C.gold, opacity: 0.7 }} />
+      <div style={{
+        position: 'relative', zIndex: 2,
+        textAlign: 'center',
+        padding: 'clamp(60px,8vw,100px) clamp(24px,6vw,96px)',
+        maxWidth: 720,
+      }}>
+        <FadeUp delay={0.05}>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 36 }}>
+            <LineReveal width={40} delay={0.1} color="rgba(184,149,76,0.5)" />
           </div>
-        </Reveal>
+        </FadeUp>
 
-        <Reveal delay={0.1}>
-          <h2
-            className="rm-font-display"
-            style={{
-              fontSize: 'clamp(32px, 5vw, 72px)',
-              fontWeight: 300,
-              fontStyle: 'italic',
-              color: C.ivory,
-              lineHeight: 1.15,
-              marginBottom: '40px',
-              letterSpacing: '-0.01em',
-            }}
-          >
-            You, 10 others like you,<br />and absolutely no one else.
+        <ClipReveal delay={0.15}>
+          <h2 style={{
+            fontFamily: 'Cormorant Garamond, serif',
+            fontSize: 'clamp(36px,5.5vw,80px)',
+            fontWeight: 300, fontStyle: 'italic',
+            color: C.ivory, lineHeight: 1.1,
+            marginBottom: 12,
+          }}>
+            You, 10 others like you,
           </h2>
-        </Reveal>
+        </ClipReveal>
+        <ClipReveal delay={0.25}>
+          <h2 style={{
+            fontFamily: 'Cormorant Garamond, serif',
+            fontSize: 'clamp(36px,5.5vw,80px)',
+            fontWeight: 300, fontStyle: 'italic',
+            color: C.gold, lineHeight: 1.1,
+          }}>
+            and absolutely no one else.
+          </h2>
+        </ClipReveal>
 
-        <Reveal delay={0.2}>
-          <p
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '0.875rem',
-              fontWeight: 300,
-              color: 'rgba(243,240,235,0.65)',
-              lineHeight: 1.95,
-              letterSpacing: '0.04em',
-              marginBottom: '14px',
-              maxWidth: '520px',
-              margin: '0 auto 14px',
-            }}
-          >
+        <FadeUp delay={0.4} style={{ marginTop: 40 }}>
+          <p style={{
+            fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
+            fontWeight: 300, color: 'rgba(243,240,235,0.55)',
+            lineHeight: 1.95, maxWidth: 480, margin: '0 auto 12px',
+          }}>
             Runwal Malabar is not simply a residence.
           </p>
-          <p
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '0.875rem',
-              fontWeight: 300,
-              color: 'rgba(243,240,235,0.65)',
-              lineHeight: 1.95,
-              letterSpacing: '0.04em',
-              maxWidth: '520px',
-              margin: '0 auto 56px',
-            }}
-          >
+          <p style={{
+            fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
+            fontWeight: 300, color: 'rgba(243,240,235,0.55)',
+            lineHeight: 1.95, maxWidth: 480, margin: '0 auto',
+          }}>
             It is a private chapter in Mumbai's skyline — written for the very few.
           </p>
-        </Reveal>
+        </FadeUp>
 
-        <Reveal delay={0.35}>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', alignItems: 'center' }}>
-            <a href="#enquire" className="rm-btn-dark">
-              Own Your Chapter
-            </a>
-          </div>
-        </Reveal>
-
-        {/* Bottom rule */}
-        <Reveal delay={0.5}>
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '60px' }}>
-            <span style={{ display: 'block', width: '48px', height: '1px', background: C.gold, opacity: 0.3 }} />
-          </div>
-        </Reveal>
+        <FadeUp delay={0.55} style={{ marginTop: 52 }}>
+          <a href="#enquire" className="btn-gold" style={{ borderColor: 'rgba(184,149,76,0.6)', color: C.ivory }}>
+            Own Your Chapter
+          </a>
+        </FadeUp>
       </div>
     </section>
   );

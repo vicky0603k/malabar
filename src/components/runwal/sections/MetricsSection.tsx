@@ -1,25 +1,15 @@
-import React from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { Colors as C } from '../types';
-import { Reveal } from '../shared';
+// METRICS — Monumental. Numbers dominate the entire viewport.
+// Each metric is a full-width typographic statement, stacked vertically.
+// No columns. No boxes. Pure typographic architecture.
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { C, EASE } from '../tokens';
+import { Counter } from '../shared';
 
-const METRICS = [
-  { value: '690',  unit: 'FT.',  label: 'Above the city',    suffix: '' },
-  { value: '270',  unit: '°',    label: 'Panoramic view',    suffix: '' },
-  { value: '54',   unit: '+',    label: 'KM boundless horizon', suffix: '' },
-];
-
-function MetricItem({
-  value,
-  unit,
-  label,
-  delay,
+function MetricRow({
+  value, unit, label, delay, align,
 }: {
-  value: string;
-  unit: string;
-  label: string;
-  delay: number;
+  value: number; unit: string; label: string; delay: number; align: 'left' | 'right';
 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
@@ -27,174 +17,106 @@ function MetricItem({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1.4, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, x: align === 'left' ? -40 : 40 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 1.4, delay, ease: EASE }}
       style={{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-        padding: 'clamp(40px, 5vw, 72px) clamp(20px, 3vw, 48px)',
-        position: 'relative',
+        alignItems: align === 'left' ? 'flex-start' : 'flex-end',
+        padding: 'clamp(28px,3.5vw,48px) 0',
+        borderBottom: '1px solid rgba(191,179,163,0.08)',
       }}
     >
-      {/* Number */}
-      <div
-        className="rm-font-display"
-        style={{
-          fontSize: 'clamp(72px, 10vw, 140px)',
-          fontWeight: 300,
-          color: C.gold,
-          lineHeight: 0.88,
-          letterSpacing: '-0.03em',
-          display: 'flex',
-          alignItems: 'flex-start',
-        }}
-      >
-        {value}
-        <span
-          style={{
-            fontSize: 'clamp(28px, 3.5vw, 52px)',
-            marginTop: '8px',
-            marginLeft: '4px',
-            color: C.goldDeep,
-            opacity: 0.8,
-          }}
-        >
+      {/* Label — small, above */}
+      <div style={{
+        fontFamily: 'Inter, sans-serif', fontSize: '0.56rem',
+        letterSpacing: '0.3em', color: 'rgba(191,179,163,0.4)',
+        textTransform: 'uppercase', marginBottom: 8,
+      }}>
+        {label}
+      </div>
+
+      {/* Number — monumental */}
+      <div style={{
+        fontFamily: 'Cormorant Garamond, serif',
+        fontSize: 'clamp(80px,13vw,200px)',
+        fontWeight: 300, color: C.gold,
+        lineHeight: 0.85, letterSpacing: '-0.03em',
+        display: 'flex', alignItems: 'flex-start',
+      }}>
+        <Counter to={value} />
+        <span style={{
+          fontSize: 'clamp(28px,4vw,64px)',
+          marginTop: 'clamp(10px,1.5vw,22px)',
+          marginLeft: 4,
+          color: C.goldDeep, opacity: 0.75,
+        }}>
           {unit}
         </span>
       </div>
-
-      {/* Thin rule */}
-      <motion.div
-        initial={{ width: 0 }}
-        animate={inView ? { width: '32px' } : {}}
-        transition={{ duration: 1, delay: delay + 0.3, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: '1px', background: C.gold, margin: '20px 0', opacity: 0.6 }}
-      />
-
-      {/* Label */}
-      <span
-        style={{
-          fontFamily: 'Inter, sans-serif',
-          fontSize: '0.62rem',
-          letterSpacing: '0.24em',
-          color: C.taupe,
-          textTransform: 'uppercase',
-        }}
-      >
-        {label}
-      </span>
     </motion.div>
   );
 }
 
 export default function MetricsSection() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const bgY = useTransform(scrollYProgress, [0, 1], ['-5%', '5%']);
+
   return (
     <section
       id="residences"
-      className="rm-section"
+      ref={ref}
       style={{
-        background: C.charcoal,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 'clamp(80px, 12vw, 160px) clamp(24px, 7vw, 112px)',
-        position: 'relative',
-        overflow: 'hidden',
+        minHeight: '100vh', background: C.charcoal,
+        position: 'relative', overflow: 'hidden',
+        display: 'flex', flexDirection: 'column', justifyContent: 'center',
       }}
     >
-      {/* Monogram watermark */}
-      <div
-        className="rm-monogram"
-        style={{
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
-          fontSize: 'clamp(200px, 35vw, 500px)',
-          WebkitTextStroke: '1px rgba(184,149,76,0.04)',
-          zIndex: 0,
-        }}
-      >
+      {/* Subtle bg texture */}
+      <motion.div style={{ position: 'absolute', inset: 0, y: bgY, zIndex: 0 }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: `radial-gradient(ellipse 70% 60% at 50% 50%, rgba(184,149,76,0.04) 0%, transparent 70%)`,
+        }} />
+      </motion.div>
+
+      {/* Monogram — enormous, faint */}
+      <div className="monogram" style={{
+        fontSize: 'clamp(300px,45vw,600px)',
+        left: '50%', top: '50%',
+        transform: 'translate(-50%,-50%)',
+        WebkitTextStroke: '1px rgba(184,149,76,0.03)',
+        zIndex: 0,
+      }}>
         RM
       </div>
 
-      {/* Ambient orb */}
-      <div
-        className="rm-orb"
-        style={{
-          width: '500px',
-          height: '500px',
-          background: `radial-gradient(circle, rgba(184,149,76,0.06) 0%, transparent 70%)`,
-          top: '20%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 0,
-        }}
-      />
-
-      {/* Eyebrow */}
-      <Reveal style={{ position: 'relative', zIndex: 1, textAlign: 'center', marginBottom: '16px' }}>
-        <span
+      {/* Content */}
+      <div style={{
+        position: 'relative', zIndex: 1,
+        padding: 'clamp(80px,10vw,130px) clamp(24px,6vw,96px)',
+      }}>
+        {/* Section label */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
           style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '0.58rem',
-            letterSpacing: '0.32em',
-            color: C.gold,
-            textTransform: 'uppercase',
-            opacity: 0.7,
+            fontFamily: 'Inter, sans-serif', fontSize: '0.56rem',
+            letterSpacing: '0.34em', color: 'rgba(184,149,76,0.5)',
+            textTransform: 'uppercase', marginBottom: 'clamp(32px,4vw,56px)',
           }}
         >
           The Altitude
-        </span>
-      </Reveal>
+        </motion.div>
 
-      {/* Headline */}
-      <Reveal delay={0.1} style={{ position: 'relative', zIndex: 1, textAlign: 'center', marginBottom: '72px' }}>
-        <h2
-          className="rm-font-display"
-          style={{
-            fontSize: 'clamp(26px, 3.5vw, 48px)',
-            fontWeight: 300,
-            fontStyle: 'italic',
-            color: C.ivory,
-            lineHeight: 1.2,
-            maxWidth: '560px',
-          }}
-        >
-          Where the city ends<br />and the sky begins.
-        </h2>
-      </Reveal>
-
-      {/* Metrics grid */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          width: '100%',
-          maxWidth: '960px',
-          position: 'relative',
-          zIndex: 1,
-        }}
-      >
-        {METRICS.map((m, i) => (
-          <React.Fragment key={m.value}>
-            <MetricItem value={m.value} unit={m.unit} label={m.label} delay={0.2 + i * 0.15} />
-            {i < METRICS.length - 1 && (
-              <div
-                className="rm-hide-mobile"
-                style={{
-                  width: '1px',
-                  background: 'rgba(191,179,163,0.15)',
-                  alignSelf: 'stretch',
-                  margin: 'auto 0',
-                }}
-              />
-            )}
-          </React.Fragment>
-        ))}
+        {/* Three metrics — alternating alignment */}
+        <MetricRow value={690}  unit="FT."  label="Above the city"       delay={0.1} align="left" />
+        <MetricRow value={270}  unit="°"    label="Panoramic view"       delay={0.2} align="right" />
+        <MetricRow value={54}   unit="+ KM" label="Boundless horizon"    delay={0.3} align="left" />
       </div>
     </section>
   );

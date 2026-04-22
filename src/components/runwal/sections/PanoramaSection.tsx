@@ -1,147 +1,104 @@
+// PANORAMA — Cinematic full-bleed. Text is minimal, floats over image.
+// Horizontal scroll-linked text drift. Immersive, not informational.
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Colors as C } from '../types';
-import { Reveal, Eyebrow, BodyCopy } from '../shared';
+import { C, EASE } from '../tokens';
+import { ClipReveal, FadeUp } from '../shared';
 
 export default function PanoramaSection() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
-  const lightX = useTransform(scrollYProgress, [0, 1], ['-5%', '5%']);
+
+  const imgY    = useTransform(scrollYProgress, [0, 1], ['-12%', '12%']);
+  const textX   = useTransform(scrollYProgress, [0, 1], ['0%', '-4%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.4]);
 
   return (
     <section
       ref={ref}
-      className="rm-section"
       style={{
-        background: C.dark,
-        display: 'flex',
-        alignItems: 'center',
-        overflow: 'hidden',
-        position: 'relative',
+        height: '100vh', minHeight: 600,
+        background: C.dark, position: 'relative', overflow: 'hidden',
       }}
     >
       {/* Full-bleed parallax image */}
-      <motion.div
-        style={{ position: 'absolute', inset: 0, y: imgY, zIndex: 0 }}
-      >
+      <motion.div style={{ position: 'absolute', inset: 0, y: imgY }}>
         <img
           src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85&auto=format&fit=crop"
-          alt="Panoramic sea horizon at sunrise"
-          style={{ width: '100%', height: '120%', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }}
+          alt=""
+          style={{ width: '100%', height: '120%', objectFit: 'cover', objectPosition: 'center 35%', display: 'block' }}
         />
-        {/* Gradient overlay */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'linear-gradient(to right, rgba(28,24,20,0.82) 0%, rgba(28,24,20,0.3) 55%, rgba(28,24,20,0.55) 100%)',
-          }}
-        />
-        {/* Subtle warm light sweep */}
-        <motion.div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: `radial-gradient(ellipse 60% 40% at 70% 50%, rgba(184,149,76,0.06) 0%, transparent 70%)`,
-            x: lightX,
-          }}
-        />
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to bottom, rgba(14,12,10,0.3) 0%, rgba(14,12,10,0.1) 40%, rgba(14,12,10,0.7) 100%)',
+        }} />
+        {/* Warm horizon glow */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse 100% 30% at 50% 45%, rgba(184,149,76,0.08) 0%, transparent 60%)',
+        }} />
       </motion.div>
 
-      {/* Content */}
-      <div
+      {/* Floating text — bottom, drifts on scroll */}
+      <motion.div
         style={{
-          position: 'relative',
+          position: 'absolute', bottom: 0, left: 0, right: 0,
+          padding: 'clamp(40px,6vw,80px) clamp(24px,6vw,96px)',
+          x: textX, opacity,
           zIndex: 1,
-          padding: 'clamp(80px, 12vw, 160px) clamp(24px, 7vw, 112px)',
-          maxWidth: '680px',
         }}
       >
-        <Reveal>
-          <Eyebrow label="The Panorama" />
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <h2
-            className="rm-font-display"
-            style={{
-              fontSize: 'clamp(28px, 4vw, 58px)',
-              fontWeight: 300,
-              fontStyle: 'italic',
-              color: C.ivory,
-              lineHeight: 1.2,
-              marginBottom: '36px',
-              maxWidth: '580px',
-            }}
-          >
+        <ClipReveal delay={0.1}>
+          <p style={{
+            fontFamily: 'Cormorant Garamond, serif',
+            fontSize: 'clamp(22px,3.2vw,48px)',
+            fontWeight: 300, fontStyle: 'italic',
+            color: C.ivory, lineHeight: 1.3,
+            maxWidth: 680, letterSpacing: '-0.01em',
+          }}>
             So rare, you'll be the first to greet the city's sunrise and last to bid farewell to its sunset.
-          </h2>
-        </Reveal>
+          </p>
+        </ClipReveal>
 
-        <Reveal delay={0.2}>
-          <BodyCopy light style={{ maxWidth: '420px', marginBottom: '48px' }}>
-            An iconic hillside address with panoramic sea and skyline views that stretch beyond the horizon — a living canvas that changes with every hour of the day.
-          </BodyCopy>
-        </Reveal>
-
-        {/* Horizon stats */}
-        <Reveal delay={0.3}>
-          <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
-            {[
-              { label: 'Arabian Sea', sub: 'Unobstructed' },
-              { label: 'City Skyline', sub: '270° sweep' },
-              { label: 'Sunrise & Sunset', sub: 'Both visible' },
-            ].map((item) => (
-              <div key={item.label}>
-                <div
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '0.6rem',
-                    letterSpacing: '0.2em',
-                    color: C.gold,
-                    textTransform: 'uppercase',
-                    marginBottom: '4px',
-                  }}
-                >
-                  {item.label}
-                </div>
-                <div
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '0.65rem',
-                    color: 'rgba(243,240,235,0.5)',
-                    letterSpacing: '0.08em',
-                  }}
-                >
-                  {item.sub}
-                </div>
+        <FadeUp delay={0.3} style={{ marginTop: 24, display: 'flex', gap: 40, flexWrap: 'wrap' }}>
+          {[
+            { l: 'Arabian Sea', s: 'Unobstructed' },
+            { l: 'City Skyline', s: '270° sweep' },
+            { l: 'Sunrise & Sunset', s: 'Both visible' },
+          ].map(item => (
+            <div key={item.l}>
+              <div style={{
+                fontFamily: 'Inter, sans-serif', fontSize: '0.56rem',
+                letterSpacing: '0.22em', color: C.gold,
+                textTransform: 'uppercase', marginBottom: 4,
+              }}>
+                {item.l}
               </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
+              <div style={{
+                fontFamily: 'Inter, sans-serif', fontSize: '0.62rem',
+                color: 'rgba(243,240,235,0.4)', letterSpacing: '0.06em',
+              }}>
+                {item.s}
+              </div>
+            </div>
+          ))}
+        </FadeUp>
+      </motion.div>
 
-      {/* Right edge — vertical text */}
-      <div
-        className="rm-hide-mobile"
-        style={{
-          position: 'absolute',
-          right: '40px',
-          top: '50%',
-          transform: 'translateY(-50%) rotate(90deg)',
-          transformOrigin: 'center',
-          fontFamily: 'Inter, sans-serif',
-          fontSize: '0.52rem',
-          letterSpacing: '0.3em',
-          color: 'rgba(243,240,235,0.25)',
-          textTransform: 'uppercase',
-          whiteSpace: 'nowrap',
-          zIndex: 1,
-        }}
-      >
-        Arabian Sea · Malabar Hill · Mumbai
+      {/* Top-right: section label */}
+      <div style={{
+        position: 'absolute', top: 'clamp(80px,10vh,120px)', right: 'clamp(24px,6vw,96px)',
+        zIndex: 1,
+      }}>
+        <FadeUp delay={0.05}>
+          <span style={{
+            fontFamily: 'Inter, sans-serif', fontSize: '0.52rem',
+            letterSpacing: '0.3em', color: 'rgba(243,240,235,0.3)',
+            textTransform: 'uppercase',
+          }}>
+            The Panorama
+          </span>
+        </FadeUp>
       </div>
     </section>
   );

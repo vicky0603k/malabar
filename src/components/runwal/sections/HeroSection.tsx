@@ -1,244 +1,223 @@
+// HERO — Layered editorial cover. Floating typography. Non-centered composition.
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Colors as C } from '../types';
+import { C, EASE } from '../tokens';
 
 export default function HeroSection({ ready }: { ready: boolean }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
 
-  const imgY    = useTransform(scrollYProgress, [0, 1], ['0%', '22%']);
-  const textY   = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
+  const bgY    = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
+  const textY  = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const fade   = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
-  const ease = [0.22, 1, 0.36, 1] as const;
-  const baseDelay = ready ? 0.1 : 99; // only animate after preloader
+  const d = ready ? 0.1 : 99;
 
   return (
     <section
       id="hero"
       ref={ref}
-      className="rm-section"
-      style={{ background: C.dark, display: 'flex', alignItems: 'stretch' }}
+      style={{
+        height: '100vh', minHeight: 700,
+        background: C.ink,
+        position: 'relative', overflow: 'hidden',
+      }}
     >
-      {/* Parallax background image */}
-      <motion.div style={{ position: 'absolute', inset: 0, y: imgY, zIndex: 0 }}>
+      {/* ── Background image layer ── */}
+      <motion.div style={{ position: 'absolute', inset: 0, y: bgY }}>
         <img
-          src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=85&auto=format&fit=crop"
-          alt="Mumbai skyline aerial view"
-          style={{ width: '100%', height: '120%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }}
+          src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=85&auto=format&fit=crop"
+          alt=""
+          style={{ width: '100%', height: '120%', objectFit: 'cover', objectPosition: 'center 55%', display: 'block' }}
         />
-        {/* Cinematic overlay */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'linear-gradient(108deg, rgba(28,24,20,0.88) 0%, rgba(28,24,20,0.45) 48%, rgba(28,24,20,0.65) 100%)',
-          }}
-        />
+        {/* Deep cinematic grade */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(135deg, rgba(14,12,10,0.92) 0%, rgba(14,12,10,0.55) 45%, rgba(14,12,10,0.75) 100%)',
+        }} />
+        {/* Warm horizon glow */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse 80% 40% at 65% 60%, rgba(184,149,76,0.07) 0%, transparent 65%)',
+        }} />
       </motion.div>
 
-      {/* Ambient gold orb */}
-      <div
-        className="rm-orb"
+      {/* ── Oversized background number ── */}
+      <div style={{
+        position: 'absolute', right: '-2vw', bottom: '-4vh',
+        fontFamily: 'Cormorant Garamond, serif',
+        fontSize: 'clamp(200px, 32vw, 480px)',
+        fontWeight: 300, lineHeight: 0.85,
+        color: 'transparent',
+        WebkitTextStroke: '1px rgba(184,149,76,0.06)',
+        userSelect: 'none', pointerEvents: 'none',
+        letterSpacing: '-0.05em',
+      }}>
+        11
+      </div>
+
+      {/* ── Thin vertical gold line — left accent ── */}
+      <motion.div
+        initial={{ height: 0 }}
+        animate={ready ? { height: '40vh' } : {}}
+        transition={{ duration: 1.6, delay: d + 0.4, ease: EASE }}
         style={{
-          width: '700px',
-          height: '700px',
-          background: `radial-gradient(circle, rgba(184,149,76,0.07) 0%, transparent 68%)`,
-          top: '5%',
-          right: '5%',
-          zIndex: 1,
+          position: 'absolute', left: 'clamp(20px,4vw,60px)', top: '20vh',
+          width: 1, background: `linear-gradient(to bottom, transparent, ${C.gold}, transparent)`,
         }}
       />
 
-      {/* Monogram watermark */}
-      <div
-        className="rm-monogram"
-        style={{ right: '-60px', bottom: '-80px', zIndex: 1, opacity: 0.7 }}
-      >
-        RM
-      </div>
+      {/* ── Floating content ── */}
+      <motion.div style={{ position: 'absolute', inset: 0, y: textY, opacity: fade }}>
 
-      {/* Decorative gold frames */}
-      <div className="rm-gold-frame" style={{ top: '88px', right: '72px', width: '220px', height: '220px', zIndex: 1 }} />
-      <div className="rm-gold-frame" style={{ top: '100px', right: '84px', width: '196px', height: '196px', opacity: 0.14, zIndex: 1 }} />
+        {/* Top-left: location tag */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={ready ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1, delay: d + 0.2, ease: EASE }}
+          style={{
+            position: 'absolute',
+            top: 'clamp(100px,14vh,140px)',
+            left: 'clamp(40px,6vw,96px)',
+            display: 'flex', alignItems: 'center', gap: 14,
+          }}
+        >
+          <span style={{ display: 'block', width: 28, height: 1, background: C.gold }} />
+          <span className="eyebrow" style={{ color: C.gold }}>
+            Next to the Governor's Estate · Malabar Hill
+          </span>
+        </motion.div>
 
-      {/* Content */}
-      <motion.div
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          y: textY,
-          opacity,
-          display: 'flex',
-          alignItems: 'flex-end',
-          width: '100%',
-          padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 96px) clamp(60px, 8vw, 100px)',
-        }}
-      >
-        <div style={{ maxWidth: '700px' }}>
-          {/* Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, x: -18 }}
-            animate={ready ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1, delay: baseDelay + 0.1, ease }}
-            style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '36px' }}
-          >
-            <span style={{ display: 'block', width: '36px', height: '1px', background: C.gold }} />
-            <span
+        {/* Main headline — offset left, large */}
+        <div style={{
+          position: 'absolute',
+          bottom: 'clamp(120px,22vh,200px)',
+          left: 'clamp(40px,6vw,96px)',
+          maxWidth: '72vw',
+        }}>
+          {/* RUNWAL — small caps above */}
+          <div style={{ overflow: 'hidden', marginBottom: 4 }}>
+            <motion.div
+              initial={{ y: '100%' }}
+              animate={ready ? { y: '0%' } : {}}
+              transition={{ duration: 1, delay: d + 0.35, ease: EASE }}
               style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '0.58rem',
-                letterSpacing: '0.32em',
-                color: C.gold,
-                textTransform: 'uppercase',
+                fontFamily: 'Inter, sans-serif', fontSize: 'clamp(10px,1vw,13px)',
+                letterSpacing: '0.36em', textTransform: 'uppercase',
+                color: 'rgba(191,179,163,0.55)',
               }}
             >
-              Next to the Governor's Estate · Malabar Hill
-            </span>
-          </motion.div>
+              RUNWAL
+            </motion.div>
+          </div>
 
-          {/* Brand name */}
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={ready ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1.3, delay: baseDelay + 0.25, ease }}
-          >
-            <div
-              className="rm-font-display"
+          {/* MALABAR — giant italic */}
+          <div style={{ overflow: 'hidden' }}>
+            <motion.h1
+              initial={{ y: '100%' }}
+              animate={ready ? { y: '0%' } : {}}
+              transition={{ duration: 1.2, delay: d + 0.5, ease: EASE }}
               style={{
-                fontSize: 'clamp(12px, 1.4vw, 17px)',
-                fontWeight: 400,
-                color: C.taupe,
-                letterSpacing: '0.32em',
-                textTransform: 'uppercase',
-                marginBottom: '2px',
-              }}
-            >
-              Runwal
-            </div>
-            <div
-              className="rm-font-serif"
-              style={{
-                fontSize: 'clamp(60px, 9vw, 130px)',
-                fontWeight: 300,
-                fontStyle: 'italic',
-                color: C.ivory,
-                lineHeight: 0.88,
-                letterSpacing: '-0.01em',
+                fontFamily: 'Cormorant Garamond, serif',
+                fontSize: 'clamp(72px,12vw,180px)',
+                fontWeight: 300, fontStyle: 'italic',
+                color: C.ivory, lineHeight: 0.88,
+                letterSpacing: '-0.02em',
+                margin: 0,
               }}
             >
               Malabar
-            </div>
-          </motion.div>
+            </motion.h1>
+          </div>
 
-          {/* Gold rule */}
+          {/* Tagline — offset right */}
           <motion.div
-            initial={{ width: 0 }}
-            animate={ready ? { width: '72px' } : {}}
-            transition={{ duration: 1.3, delay: baseDelay + 0.55, ease }}
-            style={{ height: '1px', background: C.gold, margin: '36px 0' }}
-          />
-
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={ready ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1.1, delay: baseDelay + 0.7, ease }}
-            className="rm-font-display"
+            initial={{ opacity: 0, x: 20 }}
+            animate={ready ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1, delay: d + 0.9, ease: EASE }}
             style={{
-              fontSize: 'clamp(16px, 2vw, 24px)',
-              fontWeight: 300,
-              fontStyle: 'italic',
-              color: 'rgba(243,240,235,0.82)',
-              lineHeight: 1.6,
-              marginBottom: '14px',
-              maxWidth: '540px',
+              marginTop: 28,
+              paddingLeft: 'clamp(20px,4vw,60px)',
+              borderLeft: `1px solid rgba(184,149,76,0.35)`,
+              maxWidth: 420,
             }}
           >
-            A rare collection of 11 private sky mansions rising above Mumbai's most powerful address.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={ready ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1.1, delay: baseDelay + 0.85, ease }}
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '0.75rem',
-              fontWeight: 300,
-              color: C.taupe,
-              letterSpacing: '0.1em',
-              lineHeight: 1.85,
-              marginBottom: '52px',
-              maxWidth: '440px',
-            }}
-          >
-            Where legacy, altitude, horizon, and privacy converge.
-          </motion.p>
+            <p style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: 'clamp(15px,1.6vw,20px)',
+              fontWeight: 300, fontStyle: 'italic',
+              color: 'rgba(243,240,235,0.72)',
+              lineHeight: 1.65, marginBottom: 8,
+            }}>
+              A rare collection of 11 private sky mansions rising above Mumbai's most powerful address.
+            </p>
+            <p style={{
+              fontFamily: 'Inter, sans-serif', fontSize: '0.68rem',
+              fontWeight: 300, color: C.taupe,
+              letterSpacing: '0.08em', lineHeight: 1.8,
+            }}>
+              Where legacy, altitude, horizon, and privacy converge.
+            </p>
+          </motion.div>
 
           {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={ready ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1.1, delay: baseDelay + 1.0, ease }}
-            style={{ display: 'flex', gap: '22px', flexWrap: 'wrap', alignItems: 'center' }}
+            transition={{ duration: 1, delay: d + 1.15, ease: EASE }}
+            style={{ marginTop: 44, display: 'flex', gap: 24, alignItems: 'center', flexWrap: 'wrap' }}
           >
-            <a href="#enquire" className="rm-btn-dark">
-              Book a Private Preview
-            </a>
-            <a href="#enquire" className="rm-btn-ghost">
-              Request the Brochure
-              <span
-                style={{
-                  display: 'inline-block',
-                  width: '22px',
-                  height: '1px',
-                  background: 'currentColor',
-                  verticalAlign: 'middle',
-                }}
-              />
+            <a href="#enquire" className="btn-gold">Book a Private Preview</a>
+            <a href="#enquire" className="btn-ghost-light">
+              Request Brochure
+              <span style={{ display: 'block', width: 20, height: 1, background: 'currentColor' }} />
             </a>
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Right side — floating vertical label */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={ready ? { opacity: 1 } : {}}
-          transition={{ duration: 1, delay: baseDelay + 1.4 }}
+          transition={{ duration: 1.2, delay: d + 1.4 }}
+          className="desk-only"
           style={{
             position: 'absolute',
-            bottom: 'clamp(36px, 5vw, 72px)',
-            right: 'clamp(24px, 6vw, 96px)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '10px',
+            right: 'clamp(20px,3vw,48px)',
+            top: '50%', transform: 'translateY(-50%) rotate(90deg)',
+            transformOrigin: 'center',
+            fontFamily: 'Inter, sans-serif', fontSize: '0.5rem',
+            letterSpacing: '0.3em', color: 'rgba(243,240,235,0.2)',
+            textTransform: 'uppercase', whiteSpace: 'nowrap',
           }}
         >
-          <span
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '0.52rem',
-              letterSpacing: '0.3em',
-              color: C.taupe,
-              textTransform: 'uppercase',
-              writingMode: 'vertical-rl',
-            }}
-          >
+          Malabar Hill · Mumbai · 690 ft above the city
+        </motion.div>
+
+        {/* Scroll cue */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={ready ? { opacity: 1 } : {}}
+          transition={{ duration: 1, delay: d + 1.6 }}
+          style={{
+            position: 'absolute',
+            bottom: 'clamp(28px,4vh,52px)',
+            left: 'clamp(40px,6vw,96px)',
+            display: 'flex', alignItems: 'center', gap: 14,
+          }}
+        >
+          <motion.div
+            animate={{ x: [0, 8, 0] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ width: 32, height: 1, background: C.gold }}
+          />
+          <span style={{
+            fontFamily: 'Inter, sans-serif', fontSize: '0.5rem',
+            letterSpacing: '0.28em', color: 'rgba(243,240,235,0.3)',
+            textTransform: 'uppercase',
+          }}>
             Scroll
           </span>
-          <motion.div
-            animate={{ scaleY: [1, 0.4, 1], opacity: [1, 0.3, 1] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-            style={{
-              width: '1px',
-              height: '44px',
-              background: `linear-gradient(to bottom, ${C.gold}, transparent)`,
-              transformOrigin: 'top',
-            }}
-          />
         </motion.div>
       </motion.div>
     </section>
