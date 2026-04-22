@@ -26,19 +26,19 @@ export default function HeroSection({ ready }: { ready: boolean }) {
       {/* ── Background image layer ── */}
       <motion.div style={{ position: 'absolute', inset: 0, y: bgY }}>
         <img
-          src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=85&auto=format&fit=crop"
+          src="https://static.wixstatic.com/media/cef78c_4a2273bbc2ef48d7a4ee0baf4a127ce9~mv2.png"
           alt=""
           style={{ width: '100%', height: '120%', objectFit: 'cover', objectPosition: 'center 55%', display: 'block' }}
         />
         {/* Deep cinematic grade */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(135deg, rgba(14,12,10,0.92) 0%, rgba(14,12,10,0.55) 45%, rgba(14,12,10,0.75) 100%)',
+          background: 'linear-gradient(135deg, rgba(14,12,10,0.82) 0%, rgba(14,12,10,0.35) 50%, rgba(14,12,10,0.6) 100%)',
         }} />
         {/* Warm horizon glow */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 80% 40% at 65% 60%, rgba(184,149,76,0.07) 0%, transparent 65%)',
+          background: 'radial-gradient(ellipse 80% 40% at 65% 60%, rgba(184,149,76,0.06) 0%, transparent 65%)',
         }} />
       </motion.div>
 
