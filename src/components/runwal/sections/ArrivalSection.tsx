@@ -1,4 +1,4 @@
-// ARRIVAL — Beige. Vertical composition. Image is tall and narrow, not wide.
+﻿// ARRIVAL â€” Beige. Vertical composition. Image is tall and narrow, not wide.
 // Text wraps around the image asymmetrically. Cinematic, not informational.
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -20,7 +20,7 @@ export default function ArrivalSection() {
         display: 'flex', alignItems: 'stretch',
       }}
     >
-      {/* Tall narrow image — left, not full width */}
+      {/* Tall narrow image â€” left, not full width */}
       <div style={{
         width: 'clamp(180px,28vw,380px)',
         flexShrink: 0, position: 'relative', overflow: 'hidden',
@@ -43,12 +43,12 @@ export default function ArrivalSection() {
         {/* Gold frame */}
         <div style={{
           position: 'absolute', inset: 12,
-          border: '1px solid rgba(184,149,76,0.18)',
+          border: '1px solid rgba(198,164,90,0.18)',
           pointerEvents: 'none',
         }} />
       </div>
 
-      {/* Content — right, generous padding */}
+      {/* Content â€” right, generous padding */}
       <div style={{
         flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center',
         padding: 'clamp(60px,8vw,120px) clamp(32px,5vw,80px)',
@@ -87,17 +87,17 @@ export default function ArrivalSection() {
         <FadeUp delay={0.4}>
           <p style={{
             fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
-            fontWeight: 300, color: 'rgba(58,53,47,0.62)',
+            fontWeight: 300, color: 'rgba(43,39,37,0.62)',
             lineHeight: 1.95, maxWidth: 400, letterSpacing: '0.03em',
           }}>
-            A grand porte-cochère arrival, sculpted landscape edges, and a double-height entrance designed to announce discretion, power, and refinement.
+            A grand porte-cochÃ¨re arrival, sculpted landscape edges, and a double-height entrance designed to announce discretion, power, and refinement.
           </p>
         </FadeUp>
 
-        {/* Feature list — typographic, no boxes */}
+        {/* Feature list â€” typographic, no boxes */}
         <FadeUp delay={0.55} style={{ marginTop: 48 }}>
           {[
-            'Grand porte-cochère',
+            'Grand porte-cochÃ¨re',
             'Sculpted landscape arrival',
             'Double-height entrance',
             'Private drop-off forecourt',
@@ -105,7 +105,7 @@ export default function ArrivalSection() {
             <div key={item} style={{
               display: 'flex', alignItems: 'center', gap: 16,
               padding: '14px 0',
-              borderBottom: i < 3 ? '1px solid rgba(191,179,163,0.25)' : 'none',
+              borderBottom: i < 3 ? '1px solid rgba(216,206,192,0.25)' : 'none',
             }}>
               <span style={{
                 display: 'block', width: 18, height: 1,

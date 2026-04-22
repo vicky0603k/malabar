@@ -1,4 +1,4 @@
-// LOBBY — Mist/ivory. Image bleeds from top, text below.
+﻿// LOBBY â€” Mist/ivory. Image bleeds from top, text below.
 // Headline overlaps the image bottom edge. Layered depth.
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -19,7 +19,7 @@ export default function LobbySection() {
         display: 'flex', flexDirection: 'column',
       }}
     >
-      {/* Image — top 55%, parallax */}
+      {/* Image â€” top 55%, parallax */}
       <div style={{ height: '55vh', minHeight: 300, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
         <motion.img
           src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1400&q=85&auto=format&fit=crop"
@@ -38,7 +38,7 @@ export default function LobbySection() {
         }} />
       </div>
 
-      {/* Headline — overlaps image bottom */}
+      {/* Headline â€” overlaps image bottom */}
       <div style={{
         position: 'relative', zIndex: 2,
         marginTop: '-clamp(20px,3vw,40px)',
@@ -76,7 +76,7 @@ export default function LobbySection() {
         <FadeUp delay={0.3} style={{ maxWidth: 380 }}>
           <p style={{
             fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
-            fontWeight: 300, color: 'rgba(58,53,47,0.62)',
+            fontWeight: 300, color: 'rgba(43,39,37,0.62)',
             lineHeight: 1.95, letterSpacing: '0.03em',
           }}>
             A double-height lobby and sculptural lounge crafted with dramatic verticality, soft light, and gallery-like restraint.
@@ -94,7 +94,7 @@ export default function LobbySection() {
             <div key={f} style={{
               display: 'flex', gap: 20, alignItems: 'flex-start',
               padding: '16px 0',
-              borderBottom: i < 3 ? '1px solid rgba(191,179,163,0.25)' : 'none',
+              borderBottom: i < 3 ? '1px solid rgba(216,206,192,0.25)' : 'none',
             }}>
               <span style={{
                 fontFamily: 'Cormorant Garamond, serif',

@@ -1,4 +1,4 @@
-// RARITY — Full-bleed cinematic. Centered statement. Minimal, powerful.
+﻿// RARITY â€” Full-bleed cinematic. Centered statement. Minimal, powerful.
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { C, EASE } from '../tokens';
@@ -24,13 +24,13 @@ export default function RaritySection() {
         />
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'rgba(58,53,47,0.88)',
+          background: 'rgba(43,39,37,0.88)',
         }} />
       </motion.div>
 
       <div className="orb" style={{
         width: 600, height: 600,
-        background: `radial-gradient(circle, rgba(184,149,76,0.06) 0%, transparent 70%)`,
+        background: `radial-gradient(circle, rgba(198,164,90,0.06) 0%, transparent 70%)`,
         top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
         zIndex: 1,
       }} />
@@ -43,7 +43,7 @@ export default function RaritySection() {
       }}>
         <FadeUp delay={0.05}>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 36 }}>
-            <LineReveal width={40} delay={0.1} color="rgba(184,149,76,0.5)" />
+            <LineReveal width={40} delay={0.1} color="rgba(198,164,90,0.5)" />
           </div>
         </FadeUp>
 
@@ -72,22 +72,22 @@ export default function RaritySection() {
         <FadeUp delay={0.4} style={{ marginTop: 40 }}>
           <p style={{
             fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
-            fontWeight: 300, color: 'rgba(243,240,235,0.55)',
+            fontWeight: 300, color: 'rgba(247,244,239,0.55)',
             lineHeight: 1.95, maxWidth: 480, margin: '0 auto 12px',
           }}>
             Runwal Malabar is not simply a residence.
           </p>
           <p style={{
             fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
-            fontWeight: 300, color: 'rgba(243,240,235,0.55)',
+            fontWeight: 300, color: 'rgba(247,244,239,0.55)',
             lineHeight: 1.95, maxWidth: 480, margin: '0 auto',
           }}>
-            It is a private chapter in Mumbai's skyline — written for the very few.
+            It is a private chapter in Mumbai's skyline â€” written for the very few.
           </p>
         </FadeUp>
 
         <FadeUp delay={0.55} style={{ marginTop: 52 }}>
-          <a href="#enquire" className="btn-gold" style={{ borderColor: 'rgba(184,149,76,0.6)', color: C.ivory }}>
+          <a href="#enquire" className="btn-gold" style={{ borderColor: 'rgba(198,164,90,0.6)', color: C.ivory }}>
             Own Your Chapter
           </a>
         </FadeUp>

@@ -1,4 +1,4 @@
-// PANORAMA — Cinematic full-bleed. Text is minimal, floats over image.
+﻿// PANORAMA â€” Cinematic full-bleed. Text is minimal, floats over image.
 // Horizontal scroll-linked text drift. Immersive, not informational.
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -35,11 +35,11 @@ export default function PanoramaSection() {
         {/* Warm horizon glow */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 100% 30% at 50% 45%, rgba(184,149,76,0.08) 0%, transparent 60%)',
+          background: 'radial-gradient(ellipse 100% 30% at 50% 45%, rgba(198,164,90,0.08) 0%, transparent 60%)',
         }} />
       </motion.div>
 
-      {/* Floating text — bottom, drifts on scroll */}
+      {/* Floating text â€” bottom, drifts on scroll */}
       <motion.div
         style={{
           position: 'absolute', bottom: 0, left: 0, right: 0,
@@ -63,7 +63,7 @@ export default function PanoramaSection() {
         <FadeUp delay={0.3} style={{ marginTop: 24, display: 'flex', gap: 40, flexWrap: 'wrap' }}>
           {[
             { l: 'Arabian Sea', s: 'Unobstructed' },
-            { l: 'City Skyline', s: '270° sweep' },
+            { l: 'City Skyline', s: '270Â° sweep' },
             { l: 'Sunrise & Sunset', s: 'Both visible' },
           ].map(item => (
             <div key={item.l}>
@@ -76,7 +76,7 @@ export default function PanoramaSection() {
               </div>
               <div style={{
                 fontFamily: 'Inter, sans-serif', fontSize: '0.62rem',
-                color: 'rgba(243,240,235,0.4)', letterSpacing: '0.06em',
+                color: 'rgba(247,244,239,0.4)', letterSpacing: '0.06em',
               }}>
                 {item.s}
               </div>
@@ -93,7 +93,7 @@ export default function PanoramaSection() {
         <FadeUp delay={0.05}>
           <span style={{
             fontFamily: 'Inter, sans-serif', fontSize: '0.52rem',
-            letterSpacing: '0.3em', color: 'rgba(243,240,235,0.3)',
+            letterSpacing: '0.3em', color: 'rgba(247,244,239,0.3)',
             textTransform: 'uppercase',
           }}>
             The Panorama

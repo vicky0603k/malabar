@@ -1,4 +1,4 @@
-// LOCATION — Full-bleed editorial map. Custom SVG luxury cartography.
+﻿// LOCATION â€” Full-bleed editorial map. Custom SVG luxury cartography.
 // Text floats over the map as editorial overlays, not in a sidebar.
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
@@ -33,7 +33,7 @@ export default function LocationSection() {
         display: 'flex', flexDirection: 'column',
       }}
     >
-      {/* Headline — floats top, large, bleeds */}
+      {/* Headline â€” floats top, large, bleeds */}
       <div style={{
         padding: 'clamp(80px,10vw,130px) clamp(24px,6vw,96px) 0',
         position: 'relative', zIndex: 2,
@@ -62,7 +62,7 @@ export default function LocationSection() {
         </ClipReveal>
       </div>
 
-      {/* Map — full width, editorial */}
+      {/* Map â€” full width, editorial */}
       <div
         ref={mapRef}
         style={{
@@ -76,7 +76,7 @@ export default function LocationSection() {
         {/* Gold border frame */}
         <div style={{
           position: 'absolute', inset: 0,
-          border: '1px solid rgba(184,149,76,0.2)',
+          border: '1px solid rgba(198,164,90,0.2)',
           pointerEvents: 'none', zIndex: 3,
         }} />
 
@@ -93,7 +93,7 @@ export default function LocationSection() {
           ))}
 
           {/* Sea fill */}
-          <rect x="0" y="0" width="28" height="100" fill="rgba(184,149,76,0.03)" />
+          <rect x="0" y="0" width="28" height="100" fill="rgba(198,164,90,0.03)" />
           <line x1="28" y1="0" x2="28" y2="100" stroke={C.taupe} strokeWidth="0.1" opacity="0.3" />
 
           {/* Grid */}
@@ -193,10 +193,10 @@ export default function LocationSection() {
       }}>
         <p style={{
           fontFamily: 'Inter, sans-serif', fontSize: '0.75rem',
-          fontWeight: 300, color: 'rgba(58,53,47,0.6)',
+          fontWeight: 300, color: 'rgba(43,39,37,0.6)',
           lineHeight: 1.9, maxWidth: 480, letterSpacing: '0.03em',
         }}>
-          In the company of institutions, landmarks, heritage, culture, and the Arabian Sea — a location that belongs to few and is desired by many.
+          In the company of institutions, landmarks, heritage, culture, and the Arabian Sea â€” a location that belongs to few and is desired by many.
         </p>
         <a href="https://maps.google.com/?q=Malabar+Hill+Mumbai"
           target="_blank" rel="noopener noreferrer"

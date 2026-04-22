@@ -33,14 +33,14 @@ export default function LegacySection() {
             style={{ width: '100%', height: '130%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }}
           />
         </motion.div>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(243,240,235,0.3) 0%, transparent 14%, transparent 52%, rgba(243,240,235,0.88) 84%, rgba(243,240,235,1.0) 100%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(247,244,239,0.3) 0%, transparent 14%, transparent 52%, rgba(247,244,239,0.88) 84%, rgba(247,244,239,1.0) 100%)', pointerEvents: 'none' }} />
         <FadeUp delay={0.1} style={{ position: 'absolute', top: 'clamp(28px,4.5vh,52px)', left: 'clamp(32px,5vw,80px)', display: 'flex', alignItems: 'center', gap: 14, zIndex: 2 }}>
-          <LineReveal width={26} delay={0.2} color="rgba(243,240,235,0.7)" />
-          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(8px,0.6vw,10px)', fontWeight: 400, letterSpacing: '0.36em', textTransform: 'uppercase' as const, color: 'rgba(243,240,235,0.65)' }}>The Runwal Legacy</span>
+          <LineReveal width={26} delay={0.2} color="rgba(247,244,239,0.7)" />
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(8px,0.6vw,10px)', fontWeight: 400, letterSpacing: '0.36em', textTransform: 'uppercase' as const, color: 'rgba(247,244,239,0.65)' }}>The Runwal Legacy</span>
         </FadeUp>
         <FadeUp delay={0.4} style={{ position: 'absolute', top: 'clamp(24px,4vh,48px)', right: 'clamp(32px,5vw,80px)', textAlign: 'right' as const, zIndex: 2 }}>
-          <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(32px,4.5vw,64px)', fontWeight: 300, color: 'rgba(243,240,235,0.15)', lineHeight: 1, letterSpacing: '-0.03em' }}>1978</div>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(7px,0.52vw,9px)', letterSpacing: '0.28em', color: 'rgba(243,240,235,0.25)', textTransform: 'uppercase' as const, marginTop: 4 }}>Est.</div>
+          <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(32px,4.5vw,64px)', fontWeight: 300, color: 'rgba(247,244,239,0.15)', lineHeight: 1, letterSpacing: '-0.03em' }}>1978</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(7px,0.52vw,9px)', letterSpacing: '0.28em', color: 'rgba(247,244,239,0.25)', textTransform: 'uppercase' as const, marginTop: 4 }}>Est.</div>
         </FadeUp>
         <div style={{ position: 'absolute', bottom: 'clamp(52px,9vh,88px)', left: 'clamp(28px,4vw,72px)', zIndex: 2, overflow: 'hidden' }}>
           <motion.div initial={{ y: '105%' }} whileInView={{ y: '0%' }} viewport={{ once: true }} transition={{ duration: 1.1, delay: 0.15, ease: EASE }} style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(40px,6.5vw,100px)', fontWeight: 300, fontStyle: 'italic', color: C.ivory, lineHeight: 0.9, letterSpacing: '-0.02em' }}>
@@ -67,10 +67,10 @@ export default function LegacySection() {
       <div style={{ padding: 'clamp(32px,4.5vw,60px) clamp(32px,5vw,80px) clamp(52px,7vw,88px)', display: 'flex', gap: 'clamp(28px,4vw,72px)', alignItems: 'flex-start', flexWrap: 'wrap' as const, position: 'relative', zIndex: 1 }}>
         <FadeUp delay={0.45} style={{ maxWidth: 'clamp(240px,30vw,400px)' }}>
           <div style={{ width: 32, height: 1, background: C.gold, opacity: 0.55, marginBottom: 18 }} />
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(12px,0.88vw,14px)', fontWeight: 300, color: 'rgba(58,53,47,0.6)', lineHeight: 1.95, letterSpacing: '0.03em', marginBottom: 10 }}>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(12px,0.88vw,14px)', fontWeight: 300, color: 'rgba(43,39,37,0.6)', lineHeight: 1.95, letterSpacing: '0.03em', marginBottom: 10 }}>
             For decades, Runwal Realty has shaped discerning lifestyles through residences of stature.
           </p>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(12px,0.88vw,14px)', fontWeight: 300, color: 'rgba(58,53,47,0.6)', lineHeight: 1.95, letterSpacing: '0.03em' }}>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(12px,0.88vw,14px)', fontWeight: 300, color: 'rgba(43,39,37,0.6)', lineHeight: 1.95, letterSpacing: '0.03em' }}>
             At Runwal Malabar, that legacy rises to its most exclusive expression yet.
           </p>
         </FadeUp>

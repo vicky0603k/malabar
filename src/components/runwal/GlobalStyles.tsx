@@ -8,18 +8,16 @@ export default function GlobalStyles() {
 
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      html {
-        scroll-behavior: smooth;
-        font-size: 16px;
-      }
+      html { font-size: 16px; scroll-behavior: smooth; }
 
       body {
-        background: ${C.ivory};
-        color: ${C.charcoal};
+        background: #F7F4EF;
+        color: #2B2725;
         font-family: 'Inter', sans-serif;
         font-weight: 300;
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
       /* ── Font utilities ── */
@@ -29,22 +27,19 @@ export default function GlobalStyles() {
 
       /* ── Scrollbar ── */
       ::-webkit-scrollbar { width: 2px; }
-      ::-webkit-scrollbar-track { background: ${C.ivory}; }
-      ::-webkit-scrollbar-thumb { background: ${C.taupe}; }
+      ::-webkit-scrollbar-track { background: #F7F4EF; }
+      ::-webkit-scrollbar-thumb { background: #D8CEC0; }
 
-      /* ── Clip masks ── */
-      .clip-reveal { overflow: hidden; }
-
-      /* ── Luxury input ── */
+      /* ── Luxury inputs ── */
       .lux-input {
         background: transparent;
         border: none;
-        border-bottom: 1px solid rgba(191,179,163,0.4);
+        border-bottom: 1px solid #D8CEC0;
         padding: 16px 0 12px;
         font-family: 'Inter', sans-serif;
         font-size: 0.8rem;
         font-weight: 300;
-        color: ${C.charcoal};
+        color: #2B2725;
         width: 100%;
         outline: none;
         letter-spacing: 0.05em;
@@ -53,21 +48,22 @@ export default function GlobalStyles() {
         -webkit-appearance: none;
       }
       .lux-input::placeholder {
-        color: rgba(191,179,163,0.6);
+        color: #A89F94;
         font-size: 0.72rem;
         letter-spacing: 0.12em;
+        opacity: 0.8;
       }
-      .lux-input:focus { border-bottom-color: ${C.gold}; }
+      .lux-input:focus { border-bottom-color: #C6A45A; }
 
       .lux-textarea {
         background: transparent;
         border: none;
-        border-bottom: 1px solid rgba(191,179,163,0.4);
+        border-bottom: 1px solid #D8CEC0;
         padding: 16px 0 12px;
         font-family: 'Inter', sans-serif;
         font-size: 0.8rem;
         font-weight: 300;
-        color: ${C.charcoal};
+        color: #2B2725;
         width: 100%;
         outline: none;
         letter-spacing: 0.05em;
@@ -76,21 +72,22 @@ export default function GlobalStyles() {
         border-radius: 0;
       }
       .lux-textarea::placeholder {
-        color: rgba(191,179,163,0.6);
+        color: #A89F94;
         font-size: 0.72rem;
         letter-spacing: 0.12em;
+        opacity: 0.8;
       }
-      .lux-textarea:focus { border-bottom-color: ${C.gold}; }
+      .lux-textarea:focus { border-bottom-color: #C6A45A; }
 
       /* ── Buttons ── */
       .btn-gold {
         display: inline-flex;
         align-items: center;
         gap: 12px;
-        padding: 14px 36px;
-        border: 1px solid ${C.gold};
+        padding: 13px 32px;
+        border: 1px solid #C6A45A;
         background: transparent;
-        color: ${C.charcoal};
+        color: #2B2725;
         font-family: 'Inter', sans-serif;
         font-size: 0.6rem;
         font-weight: 400;
@@ -101,15 +98,15 @@ export default function GlobalStyles() {
         text-decoration: none;
         white-space: nowrap;
       }
-      .btn-gold:hover { background: ${C.gold}; color: ${C.ivory}; }
+      .btn-gold:hover { background: #C6A45A; color: #F7F4EF; }
 
       .btn-ghost-light {
         display: inline-flex;
         align-items: center;
         gap: 12px;
-        padding: 14px 0;
+        padding: 13px 0;
         background: transparent;
-        color: rgba(243,240,235,0.45);
+        color: rgba(247,244,239,0.45);
         font-family: 'Inter', sans-serif;
         font-size: 0.6rem;
         font-weight: 300;
@@ -120,15 +117,15 @@ export default function GlobalStyles() {
         border: none;
         text-decoration: none;
       }
-      .btn-ghost-light:hover { color: ${C.ivory}; }
+      .btn-ghost-light:hover { color: #F7F4EF; }
 
       .btn-ghost-dark {
         display: inline-flex;
         align-items: center;
         gap: 12px;
-        padding: 14px 0;
+        padding: 13px 0;
         background: transparent;
-        color: rgba(58,53,47,0.45);
+        color: #A89F94;
         font-family: 'Inter', sans-serif;
         font-size: 0.6rem;
         font-weight: 300;
@@ -139,9 +136,9 @@ export default function GlobalStyles() {
         border: none;
         text-decoration: none;
       }
-      .btn-ghost-dark:hover { color: ${C.charcoal}; }
+      .btn-ghost-dark:hover { color: #2B2725; }
 
-      /* ── Ambient animation ── */
+      /* ── Ambient orb ── */
       @keyframes orb-drift {
         0%,100% { transform: translate(0,0) scale(1); }
         33%      { transform: translate(20px,-15px) scale(1.03); }
@@ -155,34 +152,27 @@ export default function GlobalStyles() {
         pointer-events: none;
       }
 
-      /* ── Monogram ── */
+      /* ── Monogram watermark ── */
       .monogram {
         position: absolute;
         font-family: 'Cormorant Garamond', serif;
         font-weight: 300;
         color: transparent;
-        -webkit-text-stroke: 1px rgba(184,149,76,0.055);
+        -webkit-text-stroke: 1px rgba(198,164,90,0.07);
         pointer-events: none;
         user-select: none;
         line-height: 1;
         letter-spacing: -0.04em;
       }
 
-      /* ── Gold line ── */
-      .gold-line {
-        display: block;
-        height: 1px;
-        background: ${C.gold};
-      }
-
-      /* ── Eyebrow ── */
+      /* ── Eyebrow label ── */
       .eyebrow {
         font-family: 'Inter', sans-serif;
         font-size: 0.56rem;
         font-weight: 400;
         letter-spacing: 0.34em;
         text-transform: uppercase;
-        color: ${C.gold};
+        color: #C6A45A;
       }
 
       /* ── Responsive ── */

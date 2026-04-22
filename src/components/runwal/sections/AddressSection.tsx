@@ -1,4 +1,4 @@
-// ADDRESS — Ivory panel. Oversized architectural SVG bleeds behind text.
+﻿// ADDRESS â€” Ivory panel. Oversized architectural SVG bleeds behind text.
 // Asymmetric: headline top-right, body bottom-left. Diagonal visual tension.
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -45,7 +45,7 @@ export default function AddressSection() {
         display: 'flex', alignItems: 'center',
       }}
     >
-      {/* Sketch — large, faded, bleeds right */}
+      {/* Sketch â€” large, faded, bleeds right */}
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -62,7 +62,7 @@ export default function AddressSection() {
         <ArchSketch />
       </motion.div>
 
-      {/* Monogram — very faint */}
+      {/* Monogram â€” very faint */}
       <div className="monogram" style={{
         fontSize: 'clamp(200px,28vw,380px)',
         left: '-60px', bottom: '-40px',
@@ -70,13 +70,13 @@ export default function AddressSection() {
         M
       </div>
 
-      {/* Content — asymmetric layout */}
+      {/* Content â€” asymmetric layout */}
       <div style={{
         position: 'relative', zIndex: 1,
         width: '100%',
         padding: 'clamp(80px,12vw,160px) clamp(24px,6vw,96px)',
       }}>
-        {/* Eyebrow — top right */}
+        {/* Eyebrow â€” top right */}
         <FadeUp style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 'clamp(40px,6vw,80px)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <span className="eyebrow">The Address</span>
@@ -84,7 +84,7 @@ export default function AddressSection() {
           </div>
         </FadeUp>
 
-        {/* Headline — right-aligned, massive */}
+        {/* Headline â€” right-aligned, massive */}
         <div style={{ textAlign: 'right', marginBottom: 'clamp(48px,7vw,96px)' }}>
           <ClipReveal delay={0.1}>
             <h2 style={{
@@ -110,7 +110,7 @@ export default function AddressSection() {
           </ClipReveal>
         </div>
 
-        {/* Body — bottom left, offset */}
+        {/* Body â€” bottom left, offset */}
         <div style={{
           display: 'flex', gap: 'clamp(32px,5vw,72px)',
           alignItems: 'flex-start', flexWrap: 'wrap',
@@ -118,23 +118,23 @@ export default function AddressSection() {
           <FadeUp delay={0.3} style={{ maxWidth: 420 }}>
             <p style={{
               fontFamily: 'Inter, sans-serif', fontSize: '0.82rem',
-              fontWeight: 300, color: 'rgba(58,53,47,0.65)',
+              fontWeight: 300, color: 'rgba(43,39,37,0.65)',
               lineHeight: 1.95, letterSpacing: '0.03em', marginBottom: 16,
             }}>
               Once associated with nobility and influence, Malabar Hill remains Mumbai's most aristocratic address.
             </p>
             <p style={{
               fontFamily: 'Inter, sans-serif', fontSize: '0.82rem',
-              fontWeight: 300, color: 'rgba(58,53,47,0.65)',
+              fontWeight: 300, color: 'rgba(43,39,37,0.65)',
               lineHeight: 1.95, letterSpacing: '0.03em',
             }}>
-              Runwal Malabar places you beside one of the city's most iconic precincts, where prestige is not announced — it is understood.
+              Runwal Malabar places you beside one of the city's most iconic precincts, where prestige is not announced â€” it is understood.
             </p>
           </FadeUp>
 
-          {/* Location callout — isolated typographic block */}
+          {/* Location callout â€” isolated typographic block */}
           <FadeUp delay={0.45}>
-            <div style={{ paddingLeft: 24, borderLeft: `1px solid rgba(184,149,76,0.3)` }}>
+            <div style={{ paddingLeft: 24, borderLeft: `1px solid rgba(198,164,90,0.3)` }}>
               <div style={{
                 fontFamily: 'Cormorant Garamond, serif',
                 fontSize: '0.75rem', fontStyle: 'italic',

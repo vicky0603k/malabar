@@ -1,4 +1,4 @@
-// MANSIONS — Ivory. Oversized "11" dominates. Image is masked, not a rectangle.
+﻿// MANSIONS â€” Ivory. Oversized "11" dominates. Image is masked, not a rectangle.
 // Text floats in negative space. Diagonal tension between number and image.
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -21,7 +21,7 @@ export default function MansionsSection() {
         display: 'flex', alignItems: 'center',
       }}
     >
-      {/* Giant "11" — structural typographic element */}
+      {/* Giant "11" â€” structural typographic element */}
       <motion.div
         style={{
           position: 'absolute',
@@ -32,7 +32,7 @@ export default function MansionsSection() {
           fontSize: 'clamp(260px,38vw,560px)',
           fontWeight: 300, lineHeight: 0.85,
           color: 'transparent',
-          WebkitTextStroke: '1px rgba(184,149,76,0.1)',
+          WebkitTextStroke: '1px rgba(198,164,90,0.1)',
           userSelect: 'none', pointerEvents: 'none',
           letterSpacing: '-0.06em',
           zIndex: 0,
@@ -41,7 +41,7 @@ export default function MansionsSection() {
         11
       </motion.div>
 
-      {/* Masked image — irregular clip, not a rectangle */}
+      {/* Masked image â€” irregular clip, not a rectangle */}
       <motion.div
         className="desk-only"
         style={{
@@ -63,12 +63,12 @@ export default function MansionsSection() {
         {/* Gold frame overlay */}
         <div style={{
           position: 'absolute', inset: 0,
-          border: '1px solid rgba(184,149,76,0.2)',
+          border: '1px solid rgba(198,164,90,0.2)',
           pointerEvents: 'none',
         }} />
       </motion.div>
 
-      {/* Content — left, floating */}
+      {/* Content â€” left, floating */}
       <div style={{
         position: 'relative', zIndex: 2,
         padding: 'clamp(80px,12vw,160px) clamp(24px,6vw,96px)',
@@ -107,27 +107,27 @@ export default function MansionsSection() {
         <FadeUp delay={0.4}>
           <p style={{
             fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
-            fontWeight: 300, color: 'rgba(58,53,47,0.6)',
+            fontWeight: 300, color: 'rgba(43,39,37,0.6)',
             lineHeight: 1.95, maxWidth: 380, marginBottom: 12,
           }}>
             A singular vertical estate for a select few.
           </p>
           <p style={{
             fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
-            fontWeight: 300, color: 'rgba(58,53,47,0.6)',
+            fontWeight: 300, color: 'rgba(43,39,37,0.6)',
             lineHeight: 1.95, maxWidth: 380,
           }}>
             No crowd. No compromise. No second version.
           </p>
         </FadeUp>
 
-        {/* Attributes — typographic list, no boxes */}
+        {/* Attributes â€” typographic list, no boxes */}
         <FadeUp delay={0.55} style={{ marginTop: 48 }}>
           {['One residence per floor', 'Private sky terrace', 'Unobstructed sea views', 'Bespoke interior finish'].map((item, i) => (
             <div key={item} style={{
               display: 'flex', alignItems: 'center', gap: 14,
               padding: '13px 0',
-              borderBottom: i < 3 ? '1px solid rgba(191,179,163,0.2)' : 'none',
+              borderBottom: i < 3 ? '1px solid rgba(216,206,192,0.2)' : 'none',
             }}>
               <span style={{
                 display: 'block', width: 4, height: 4, borderRadius: '50%',
@@ -148,17 +148,17 @@ export default function MansionsSection() {
         </FadeUp>
       </div>
 
-      {/* Vertical label — far right */}
+      {/* Vertical label â€” far right */}
       <div className="desk-only" style={{
         position: 'absolute', left: 'clamp(16px,2vw,28px)', top: '50%',
         transform: 'translateY(-50%) rotate(-90deg)',
         transformOrigin: 'center',
         fontFamily: 'Inter, sans-serif', fontSize: '0.48rem',
-        letterSpacing: '0.3em', color: 'rgba(58,53,47,0.2)',
+        letterSpacing: '0.3em', color: 'rgba(43,39,37,0.2)',
         textTransform: 'uppercase', whiteSpace: 'nowrap',
         zIndex: 1,
       }}>
-        Private · Rare · Limited
+        Private Â· Rare Â· Limited
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-// PARKING — Dark. Diagonal split: text top-left, features bottom-right.
+﻿// PARKING â€” Dark. Diagonal split: text top-left, features bottom-right.
 import React from 'react';
 import { C } from '../tokens';
 import { ClipReveal, FadeUp, LineReveal } from '../shared';
@@ -12,14 +12,14 @@ export default function ParkingSection() {
     }}>
       <div className="orb" style={{
         width: 500, height: 500,
-        background: `radial-gradient(circle, rgba(184,149,76,0.04) 0%, transparent 70%)`,
+        background: `radial-gradient(circle, rgba(198,164,90,0.04) 0%, transparent 70%)`,
         bottom: '20%', right: '15%',
       }} />
 
       <div className="monogram" style={{
         fontSize: 'clamp(180px,26vw,340px)',
         right: '-40px', top: '50%', transform: 'translateY(-50%)',
-        WebkitTextStroke: '1px rgba(184,149,76,0.035)',
+        WebkitTextStroke: '1px rgba(198,164,90,0.035)',
       }}>V</div>
 
       <div style={{
@@ -34,8 +34,8 @@ export default function ParkingSection() {
         <div>
           <FadeUp delay={0.05}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 36 }}>
-              <LineReveal width={36} delay={0.1} color="rgba(184,149,76,0.6)" />
-              <span className="eyebrow" style={{ color: 'rgba(184,149,76,0.6)' }}>The Vault</span>
+              <LineReveal width={36} delay={0.1} color="rgba(198,164,90,0.6)" />
+              <span className="eyebrow" style={{ color: 'rgba(198,164,90,0.6)' }}>The Vault</span>
             </div>
           </FadeUp>
 
@@ -63,7 +63,7 @@ export default function ParkingSection() {
           <FadeUp delay={0.4} style={{ marginTop: 32 }}>
             <p style={{
               fontFamily: 'Inter, sans-serif', fontSize: '0.78rem',
-              fontWeight: 300, color: 'rgba(243,240,235,0.5)',
+              fontWeight: 300, color: 'rgba(247,244,239,0.5)',
               lineHeight: 1.95, maxWidth: 360,
             }}>
               Private parking infrastructure and curated service planning designed to protect convenience, discretion, and lifestyle.
@@ -81,7 +81,7 @@ export default function ParkingSection() {
             <FadeUp key={f.l} delay={0.3 + i * 0.1}>
               <div style={{
                 padding: '20px 0',
-                borderBottom: i < 3 ? '1px solid rgba(191,179,163,0.08)' : 'none',
+                borderBottom: i < 3 ? '1px solid rgba(216,206,192,0.08)' : 'none',
                 display: 'flex', gap: 18, alignItems: 'flex-start',
               }}>
                 <span style={{
@@ -94,14 +94,14 @@ export default function ParkingSection() {
                 <div>
                   <div style={{
                     fontFamily: 'Inter, sans-serif', fontSize: '0.75rem',
-                    fontWeight: 400, color: 'rgba(243,240,235,0.75)',
+                    fontWeight: 400, color: 'rgba(247,244,239,0.75)',
                     letterSpacing: '0.04em', marginBottom: 4,
                   }}>
                     {f.l}
                   </div>
                   <div style={{
                     fontFamily: 'Inter, sans-serif', fontSize: '0.65rem',
-                    fontWeight: 300, color: 'rgba(191,179,163,0.45)',
+                    fontWeight: 300, color: 'rgba(216,206,192,0.45)',
                     letterSpacing: '0.04em',
                   }}>
                     {f.d}

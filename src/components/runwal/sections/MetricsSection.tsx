@@ -1,4 +1,4 @@
-// METRICS — Monumental. Numbers dominate the entire viewport.
+﻿// METRICS â€” Monumental. Numbers dominate the entire viewport.
 // Each metric is a full-width typographic statement, stacked vertically.
 // No columns. No boxes. Pure typographic architecture.
 import React, { useRef } from 'react';
@@ -25,19 +25,19 @@ function MetricRow({
         flexDirection: 'column',
         alignItems: align === 'left' ? 'flex-start' : 'flex-end',
         padding: 'clamp(28px,3.5vw,48px) 0',
-        borderBottom: '1px solid rgba(191,179,163,0.08)',
+        borderBottom: '1px solid rgba(216,206,192,0.08)',
       }}
     >
-      {/* Label — small, above */}
+      {/* Label â€” small, above */}
       <div style={{
         fontFamily: 'Inter, sans-serif', fontSize: '0.56rem',
-        letterSpacing: '0.3em', color: 'rgba(191,179,163,0.4)',
+        letterSpacing: '0.3em', color: 'rgba(216,206,192,0.4)',
         textTransform: 'uppercase', marginBottom: 8,
       }}>
         {label}
       </div>
 
-      {/* Number — monumental */}
+      {/* Number â€” monumental */}
       <div style={{
         fontFamily: 'Cormorant Garamond, serif',
         fontSize: 'clamp(80px,13vw,200px)',
@@ -78,16 +78,16 @@ export default function MetricsSection() {
       <motion.div style={{ position: 'absolute', inset: 0, y: bgY, zIndex: 0 }}>
         <div style={{
           position: 'absolute', inset: 0,
-          background: `radial-gradient(ellipse 70% 60% at 50% 50%, rgba(184,149,76,0.04) 0%, transparent 70%)`,
+          background: `radial-gradient(ellipse 70% 60% at 50% 50%, rgba(198,164,90,0.04) 0%, transparent 70%)`,
         }} />
       </motion.div>
 
-      {/* Monogram — enormous, faint */}
+      {/* Monogram â€” enormous, faint */}
       <div className="monogram" style={{
         fontSize: 'clamp(300px,45vw,600px)',
         left: '50%', top: '50%',
         transform: 'translate(-50%,-50%)',
-        WebkitTextStroke: '1px rgba(184,149,76,0.03)',
+        WebkitTextStroke: '1px rgba(198,164,90,0.03)',
         zIndex: 0,
       }}>
         RM
@@ -106,16 +106,16 @@ export default function MetricsSection() {
           transition={{ duration: 1 }}
           style={{
             fontFamily: 'Inter, sans-serif', fontSize: '0.56rem',
-            letterSpacing: '0.34em', color: 'rgba(184,149,76,0.5)',
+            letterSpacing: '0.34em', color: 'rgba(198,164,90,0.5)',
             textTransform: 'uppercase', marginBottom: 'clamp(32px,4vw,56px)',
           }}
         >
           The Altitude
         </motion.div>
 
-        {/* Three metrics — alternating alignment */}
+        {/* Three metrics â€” alternating alignment */}
         <MetricRow value={690}  unit="FT."  label="Above the city"       delay={0.1} align="left" />
-        <MetricRow value={270}  unit="°"    label="Panoramic view"       delay={0.2} align="right" />
+        <MetricRow value={270}  unit="Â°"    label="Panoramic view"       delay={0.2} align="right" />
         <MetricRow value={54}   unit="+ KM" label="Boundless horizon"    delay={0.3} align="left" />
       </div>
     </section>

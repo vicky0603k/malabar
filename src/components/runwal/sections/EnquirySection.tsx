@@ -1,10 +1,10 @@
-// ENQUIRY — Ivory. Editorial form layout. Fields are typographic, not boxed.
+﻿// ENQUIRY â€” Ivory. Editorial form layout. Fields are typographic, not boxed.
 // Headline is large and asymmetric. Form feels designed, not generated.
 import React, { useState } from 'react';
 import { C } from '../tokens';
 import { ClipReveal, FadeUp, LineReveal } from '../shared';
 
-const OPTIONS = ['Sky Mansion — Full Floor', 'Penthouse Collection', 'Duplex Sky Suite', 'Prefer to Discuss'];
+const OPTIONS = ['Sky Mansion â€” Full Floor', 'Penthouse Collection', 'Duplex Sky Suite', 'Prefer to Discuss'];
 
 export default function EnquirySection() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', interest: '', message: '' });
@@ -20,7 +20,7 @@ export default function EnquirySection() {
       <div className="monogram" style={{
         fontSize: 'clamp(160px,22vw,300px)',
         right: '-40px', bottom: '-40px',
-        WebkitTextStroke: '1px rgba(184,149,76,0.045)',
+        WebkitTextStroke: '1px rgba(198,164,90,0.045)',
       }}>RM</div>
 
       <div style={{
@@ -32,7 +32,7 @@ export default function EnquirySection() {
         gap: 'clamp(48px,7vw,100px)',
         alignItems: 'start',
       }}>
-        {/* Left — headline */}
+        {/* Left â€” headline */}
         <div>
           <FadeUp delay={0.05}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 36 }}>
@@ -65,7 +65,7 @@ export default function EnquirySection() {
           <FadeUp delay={0.4} style={{ marginTop: 36 }}>
             <p style={{
               fontFamily: 'Inter, sans-serif', fontSize: '0.75rem',
-              fontWeight: 300, color: 'rgba(58,53,47,0.55)',
+              fontWeight: 300, color: 'rgba(43,39,37,0.55)',
               lineHeight: 1.9, maxWidth: 340, letterSpacing: '0.03em',
             }}>
               Private previews by appointment only. Enquire for floor plans, brochure access, and a confidential consultation.
@@ -109,7 +109,7 @@ export default function EnquirySection() {
           </FadeUp>
         </div>
 
-        {/* Right — form */}
+        {/* Right â€” form */}
         <FadeUp delay={0.3}>
           <form onSubmit={e => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {[
