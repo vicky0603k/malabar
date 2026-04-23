@@ -1,4 +1,4 @@
-﻿// HERO — Clean split composition.
+// HERO — Clean split composition.
 // LEFT: building image, fully visible, no text on top.
 // RIGHT: all text — headline, tagline, CTAs — vertically centered.
 // Clear section boundary. No overflow into next section.
@@ -98,10 +98,10 @@ export default function HeroSection({ ready }: { ready: boolean }) {
         >
           <span style={{ display: 'block', width: 22, height: 1, background: C.gold, opacity: 0.65, flexShrink: 0 }} />
           <span style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: 'clamp(8px,0.6vw,10px)',
+            fontFamily: 'DM Sans, sans-serif',
+            fontSize: 'clamp(9px,0.65vw,11px)',
             fontWeight: 400,
-            letterSpacing: '0.34em',
+            letterSpacing: '0.28em',
             textTransform: 'uppercase',
             color: C.taupe,
           }}>
@@ -116,10 +116,10 @@ export default function HeroSection({ ready }: { ready: boolean }) {
             animate={ready ? { y: '0%' } : {}}
             transition={{ duration: 0.9, delay: d + 0.3, ease: EASE }}
             style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: 'clamp(9px,0.72vw,11px)',
-              fontWeight: 400,
-              letterSpacing: '0.44em',
+              fontFamily: 'DM Sans, sans-serif',
+              fontSize: 'clamp(10px,0.75vw,12px)',
+              fontWeight: 500,
+              letterSpacing: '0.36em',
               textTransform: 'uppercase',
               color: C.taupe,
             }}
@@ -135,13 +135,13 @@ export default function HeroSection({ ready }: { ready: boolean }) {
             animate={ready ? { y: '0%' } : {}}
             transition={{ duration: 1.2, delay: d + 0.42, ease: EASE }}
             style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'Playfair Display, serif',
               fontSize: 'clamp(52px,7vw,108px)',
-              fontWeight: 300,
+              fontWeight: 600,
               fontStyle: 'italic',
               color: C.charcoal,
-              lineHeight: 0.9,
-              letterSpacing: '-0.02em',
+              lineHeight: 0.92,
+              letterSpacing: '-0.01em',
               margin: 0,
             }}
           >
@@ -168,13 +168,13 @@ export default function HeroSection({ ready }: { ready: boolean }) {
           animate={ready ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.1, delay: d + 0.78, ease: EASE }}
           style={{
-            fontFamily: 'Cormorant Garamond, serif',
-            fontSize: 'clamp(13px,1.2vw,17px)',
-            fontWeight: 300,
+            fontFamily: 'Playfair Display, serif',
+            fontSize: 'clamp(14px,1.2vw,18px)',
+            fontWeight: 400,
             fontStyle: 'italic',
-            color: 'rgba(43,39,37,0.65)',
-            lineHeight: 1.75,
-            letterSpacing: '0.01em',
+            color: 'rgba(43,39,37,0.7)',
+            lineHeight: 1.7,
+            letterSpacing: '0em',
             maxWidth: 'clamp(220px,26vw,360px)',
             marginBottom: 'clamp(10px,1.2vh,16px)',
           }}
@@ -188,12 +188,12 @@ export default function HeroSection({ ready }: { ready: boolean }) {
           animate={ready ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: d + 0.88, ease: EASE }}
           style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: 'clamp(9px,0.65vw,11px)',
+            fontFamily: 'DM Sans, sans-serif',
+            fontSize: 'clamp(11px,0.75vw,13px)',
             fontWeight: 300,
-            letterSpacing: '0.14em',
+            letterSpacing: '0.08em',
             color: C.taupe,
-            lineHeight: 1.9,
+            lineHeight: 1.8,
             marginBottom: 'clamp(28px,3.5vh,44px)',
           }}
         >
@@ -214,10 +214,10 @@ export default function HeroSection({ ready }: { ready: boolean }) {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 12,
-              fontFamily: 'Inter, sans-serif',
-              fontSize: 'clamp(8px,0.6vw,10px)',
-              fontWeight: 400,
-              letterSpacing: '0.28em',
+              fontFamily: 'DM Sans, sans-serif',
+              fontSize: 'clamp(10px,0.68vw,11px)',
+              fontWeight: 500,
+              letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: C.charcoal,
               textDecoration: 'none',
@@ -249,10 +249,10 @@ export default function HeroSection({ ready }: { ready: boolean }) {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 10,
-              fontFamily: 'Inter, sans-serif',
-              fontSize: 'clamp(8px,0.58vw,10px)',
-              fontWeight: 300,
-              letterSpacing: '0.24em',
+              fontFamily: 'DM Sans, sans-serif',
+              fontSize: 'clamp(10px,0.65vw,11px)',
+              fontWeight: 400,
+              letterSpacing: '0.18em',
               textTransform: 'uppercase',
               color: C.taupe,
               textDecoration: 'none',
@@ -290,9 +290,9 @@ export default function HeroSection({ ready }: { ready: boolean }) {
             style={{ width: 20, height: 1, background: C.gold, transformOrigin: 'left' }}
           />
           <span style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: 'clamp(7px,0.5vw,9px)',
-            letterSpacing: '0.3em',
+            fontFamily: 'DM Sans, sans-serif',
+            fontSize: 'clamp(8px,0.55vw,10px)',
+            letterSpacing: '0.24em',
             color: 'rgba(43,39,37,0.28)',
             textTransform: 'uppercase',
           }}>

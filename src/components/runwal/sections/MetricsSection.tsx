@@ -1,4 +1,4 @@
-﻿// METRICS — Light beige. Monumental numbers on a clean, airy surface.
+// METRICS — Light beige. Monumental numbers on a clean, airy surface.
 // Alternating alignment. No dark background. Gold on beige = premium, not heavy.
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
@@ -26,9 +26,10 @@ function MetricRow({ value, unit, label, delay, align }: {
       }}
     >
       <div style={{
-        fontFamily: 'Inter, sans-serif',
-        fontSize: '0.54rem',
-        letterSpacing: '0.3em',
+        fontFamily: 'DM Sans, sans-serif',
+        fontSize: '0.6rem',
+        fontWeight: 500,
+        letterSpacing: '0.28em',
         color: C.taupe,
         textTransform: 'uppercase',
         marginBottom: 10,
@@ -36,22 +37,23 @@ function MetricRow({ value, unit, label, delay, align }: {
         {label}
       </div>
       <div style={{
-        fontFamily: 'Cormorant Garamond, serif',
+        fontFamily: 'DM Sans, sans-serif',
         fontSize: 'clamp(72px,12vw,180px)',
         fontWeight: 300,
         color: C.gold,
         lineHeight: 0.85,
-        letterSpacing: '-0.03em',
+        letterSpacing: '-0.02em',
         display: 'flex',
         alignItems: 'flex-start',
       }}>
         <Counter to={value} />
         <span style={{
-          fontSize: 'clamp(24px,3.5vw,56px)',
+          fontSize: 'clamp(22px,3vw,48px)',
+          fontWeight: 400,
           marginTop: 'clamp(8px,1.2vw,18px)',
-          marginLeft: 4,
+          marginLeft: 6,
           color: C.goldDeep,
-          opacity: 0.7,
+          opacity: 0.8,
         }}>
           {unit}
         </span>

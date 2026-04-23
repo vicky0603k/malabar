@@ -1,4 +1,4 @@
-﻿// SCALE — Light mist/stone. Ghost "7500" on a warm light surface.
+// SCALE — Light mist/stone. Ghost "7500" on a warm light surface.
 // Clean, airy, typographic. No dark background whatsoever.
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -27,15 +27,15 @@ export default function ScaleSection() {
         top: '50%',
         transform: 'translateY(-50%)',
         y: numY,
-        fontFamily: 'Cormorant Garamond, serif',
+        fontFamily: 'Playfair Display, serif',
         fontSize: 'clamp(120px,20vw,300px)',
-        fontWeight: 300,
+        fontWeight: 400,
         lineHeight: 0.85,
         color: 'transparent',
         WebkitTextStroke: '1px rgba(198,164,90,0.15)',
         userSelect: 'none',
         pointerEvents: 'none',
-        letterSpacing: '-0.04em',
+        letterSpacing: '-0.02em',
         zIndex: 0,
       }}>
         7500
@@ -60,9 +60,9 @@ export default function ScaleSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 1.1, delay: 0.15, ease: EASE }}
                 style={{
-                  fontFamily: 'Cormorant Garamond, serif',
+                  fontFamily: 'Playfair Display, serif',
                   fontSize: 'clamp(26px,3.8vw,52px)',
-                  fontWeight: 300,
+                  fontWeight: 600,
                   fontStyle: 'italic',
                   color: C.charcoal,
                   lineHeight: 1.15,
@@ -78,9 +78,9 @@ export default function ScaleSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 1.1, delay: 0.25, ease: EASE }}
                 style={{
-                  fontFamily: 'Cormorant Garamond, serif',
+                  fontFamily: 'Playfair Display, serif',
                   fontSize: 'clamp(26px,3.8vw,52px)',
-                  fontWeight: 300,
+                  fontWeight: 600,
                   fontStyle: 'italic',
                   color: C.gold,
                   lineHeight: 1.15,
@@ -104,13 +104,13 @@ export default function ScaleSection() {
         }}>
           <FadeUp delay={0.35}>
             <p style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '0.78rem',
+              fontFamily: 'DM Sans, sans-serif',
+              fontSize: '0.88rem',
               fontWeight: 300,
               color: C.mid,
-              lineHeight: 1.9,
+              lineHeight: 1.85,
               maxWidth: 340,
-              letterSpacing: '0.03em',
+              letterSpacing: '0.01em',
             }}>
               Expansive private living designed for collectors of space, light, and legacy.
             </p>
@@ -124,19 +124,20 @@ export default function ScaleSection() {
             ].map(item => (
               <div key={item.l} style={{ textAlign: 'center' }}>
                 <div style={{
-                  fontFamily: 'Cormorant Garamond, serif',
-                  fontSize: 'clamp(30px,3.8vw,50px)',
-                  fontWeight: 300,
+                  fontFamily: 'DM Sans, sans-serif',
+                  fontSize: 'clamp(28px,3.6vw,48px)',
+                  fontWeight: 400,
                   color: C.gold,
                   lineHeight: 1,
-                  letterSpacing: '-0.02em',
+                  letterSpacing: '-0.01em',
                 }}>
                   <Counter to={item.n} suffix={item.s} />
                 </div>
                 <div style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '0.52rem',
-                  letterSpacing: '0.22em',
+                  fontFamily: 'DM Sans, sans-serif',
+                  fontSize: '0.6rem',
+                  fontWeight: 500,
+                  letterSpacing: '0.2em',
                   color: C.taupe,
                   textTransform: 'uppercase',
                   marginTop: 8,

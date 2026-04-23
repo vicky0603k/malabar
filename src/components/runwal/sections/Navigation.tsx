@@ -1,4 +1,4 @@
-﻿// Navigation — ultra-minimal, transparent to frosted ivory on scroll
+// Navigation — ultra-minimal, transparent to frosted ivory on scroll
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { C, EASE } from '../tokens';
@@ -31,9 +31,9 @@ export default function Navigation({ ready }: { ready: boolean }) {
         {/* Logo */}
         <a href="#" style={{ textDecoration: 'none', lineHeight: 1 }}>
           <div style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: 9,
-            letterSpacing: '0.36em',
+            fontFamily: 'DM Sans, sans-serif',
+            fontSize: 10,
+            letterSpacing: '0.3em',
             textTransform: 'uppercase',
             color: scrolled ? C.taupe : 'rgba(247,244,239,0.65)',
             transition: 'color .4s ease',
@@ -41,13 +41,13 @@ export default function Navigation({ ready }: { ready: boolean }) {
             RUNWAL
           </div>
           <div style={{
-            fontFamily: 'Cormorant, serif',
-            fontSize: 17,
-            fontWeight: 300,
+            fontFamily: 'Playfair Display, serif',
+            fontSize: 19,
+            fontWeight: 500,
             fontStyle: 'italic',
             color: C.gold,
-            letterSpacing: '0.04em',
-            marginTop: -1,
+            letterSpacing: '0.02em',
+            marginTop: 1,
           }}>
             Malabar
           </div>
@@ -60,11 +60,12 @@ export default function Navigation({ ready }: { ready: boolean }) {
               key={l}
               href={`#${l.toLowerCase()}`}
               style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '0.56rem',
-                letterSpacing: '0.2em',
+                fontFamily: 'DM Sans, sans-serif',
+                fontSize: '0.62rem',
+                fontWeight: 400,
+                letterSpacing: '0.16em',
                 textTransform: 'uppercase',
-                color: scrolled ? 'rgba(43,39,37,0.55)' : 'rgba(247,244,239,0.6)',
+                color: scrolled ? 'rgba(43,39,37,0.6)' : 'rgba(247,244,239,0.6)',
                 textDecoration: 'none',
                 transition: 'color .3s ease',
               }}
@@ -118,9 +119,10 @@ export default function Navigation({ ready }: { ready: boolean }) {
                 href={`#${l.toLowerCase()}`}
                 onClick={() => setOpen(false)}
                 style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '0.62rem',
-                  letterSpacing: '0.22em',
+                  fontFamily: 'DM Sans, sans-serif',
+                  fontSize: '0.68rem',
+                  fontWeight: 400,
+                  letterSpacing: '0.18em',
                   textTransform: 'uppercase',
                   color: C.charcoal,
                   textDecoration: 'none',

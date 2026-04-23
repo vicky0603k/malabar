@@ -1,4 +1,4 @@
-﻿// LEGACY — Image-led editorial spread.
+// LEGACY — Image-led editorial spread.
 // Full-bleed image top band (~65vh). Sharp, no white fade.
 // Below: clean ivory content band — headline, body, stats in one cohesive row.
 // "generations" in gold. Stats inline with text, not floating right.
@@ -93,22 +93,22 @@ export default function LegacySection() {
           zIndex: 2,
         }}>
           <div style={{
-            fontFamily: 'Cormorant Garamond, serif',
+            fontFamily: 'Playfair Display, serif',
             fontSize: 'clamp(28px,4vw,56px)',
-            fontWeight: 300,
-            color: 'rgba(247,244,239,0.1)',
+            fontWeight: 400,
+            color: 'rgba(247,244,239,0.12)',
             lineHeight: 1,
-            letterSpacing: '-0.03em',
+            letterSpacing: '-0.01em',
           }}>
             1978
           </div>
           <div style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: 'clamp(7px,0.5vw,9px)',
-            letterSpacing: '0.28em',
-            color: 'rgba(247,244,239,0.2)',
+            fontFamily: 'DM Sans, sans-serif',
+            fontSize: 'clamp(9px,0.6vw,10px)',
+            letterSpacing: '0.24em',
+            color: 'rgba(247,244,239,0.22)',
             textTransform: 'uppercase',
-            marginTop: 3,
+            marginTop: 4,
           }}>
             Est.
           </div>
@@ -128,13 +128,13 @@ export default function LegacySection() {
             viewport={{ once: true }}
             transition={{ duration: 1.1, delay: 0.15, ease: EASE }}
             style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'Playfair Display, serif',
               fontSize: 'clamp(36px,5.8vw,88px)',
-              fontWeight: 300,
+              fontWeight: 500,
               fontStyle: 'italic',
               color: '#F7F4EF',
-              lineHeight: 0.9,
-              letterSpacing: '-0.02em',
+              lineHeight: 0.95,
+              letterSpacing: '-0.01em',
             }}
           >
             Built for
@@ -155,13 +155,13 @@ export default function LegacySection() {
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.28, ease: EASE }}
             style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'Playfair Display, serif',
               fontSize: 'clamp(48px,8.5vw,132px)',
-              fontWeight: 300,
+              fontWeight: 500,
               fontStyle: 'italic',
               color: C.gold,
-              lineHeight: 0.88,
-              letterSpacing: '-0.025em',
+              lineHeight: 0.9,
+              letterSpacing: '-0.01em',
             }}
           >
             generations
@@ -190,13 +190,13 @@ export default function LegacySection() {
             viewport={{ once: true }}
             transition={{ duration: 1.1, delay: 0.38, ease: EASE }}
             style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'Playfair Display, serif',
               fontSize: 'clamp(36px,5.8vw,88px)',
-              fontWeight: 300,
+              fontWeight: 500,
               fontStyle: 'italic',
               color: C.charcoal,
-              lineHeight: 0.92,
-              letterSpacing: '-0.02em',
+              lineHeight: 0.96,
+              letterSpacing: '-0.01em',
             }}
           >
             to come.
@@ -215,23 +215,23 @@ export default function LegacySection() {
           <FadeUp delay={0.45} style={{ maxWidth: 'clamp(240px,32vw,420px)', flexShrink: 0 }}>
             <div style={{ width: 28, height: 1, background: C.gold, opacity: 0.5, marginBottom: 20 }} />
             <p style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: 'clamp(12px,0.88vw,14px)',
+              fontFamily: 'DM Sans, sans-serif',
+              fontSize: 'clamp(13px,0.95vw,15px)',
               fontWeight: 300,
               color: C.mid,
-              lineHeight: 2.0,
-              letterSpacing: '0.03em',
+              lineHeight: 1.95,
+              letterSpacing: '0.01em',
               marginBottom: 10,
             }}>
               For decades, Runwal Realty has shaped discerning lifestyles through residences of stature.
             </p>
             <p style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: 'clamp(12px,0.88vw,14px)',
+              fontFamily: 'DM Sans, sans-serif',
+              fontSize: 'clamp(13px,0.95vw,15px)',
               fontWeight: 300,
               color: C.mid,
-              lineHeight: 2.0,
-              letterSpacing: '0.03em',
+              lineHeight: 1.95,
+              letterSpacing: '0.01em',
             }}>
               At Runwal Malabar, that legacy rises to its most exclusive expression yet.
             </p>
@@ -254,21 +254,21 @@ export default function LegacySection() {
                 <div>
                   {/* Number */}
                   <div style={{
-                    fontFamily: 'Cormorant Garamond, serif',
-                    fontSize: 'clamp(36px,4.5vw,60px)',
-                    fontWeight: 300,
+                    fontFamily: 'DM Sans, sans-serif',
+                    fontSize: 'clamp(32px,4vw,56px)',
+                    fontWeight: 400,
                     color: C.gold,
-                    lineHeight: 0.9,
-                    letterSpacing: '-0.02em',
+                    lineHeight: 0.95,
+                    letterSpacing: '-0.01em',
                     marginBottom: 10,
                   }}>
                     <Counter to={item.n} suffix={item.s} />
                   </div>
                   {/* Label */}
                   <div style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: 'clamp(7px,0.52vw,9px)',
-                    fontWeight: 300,
+                    fontFamily: 'DM Sans, sans-serif',
+                    fontSize: 'clamp(8px,0.58vw,10px)',
+                    fontWeight: 500,
                     letterSpacing: '0.2em',
                     color: C.taupe,
                     textTransform: 'uppercase',
