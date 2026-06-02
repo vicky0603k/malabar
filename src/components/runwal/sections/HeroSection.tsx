@@ -35,12 +35,14 @@ export default function HeroSection({ ready }: { ready: boolean }) {
           LEFT PANEL — Building image, 58% width
           No text. No overlay. Fully visible.
       ══════════════════════════════════════ */}
-      <div style={{
-        position: 'relative',
-        width: '58%',
-        flexShrink: 0,
-        overflow: 'hidden',
-      }}>
+      <div
+        id="hero-img-panel"
+        style={{
+          position: 'relative',
+          width: '58%',
+          flexShrink: 0,
+          overflow: 'hidden',
+        }}>
         <motion.div style={{ position: 'absolute', inset: 0, y: imgY }}>
           <img
             src="https://static.wixstatic.com/media/cef78c_9dee5e376c7d4888a0b1dd9174b9e7ef~mv2.jpg"
@@ -56,11 +58,14 @@ export default function HeroSection({ ready }: { ready: boolean }) {
         </motion.div>
 
         {/* Right edge — very soft fade into ivory panel */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to right, transparent 70%, rgba(247,244,239,0.85) 100%)',
-          pointerEvents: 'none',
-        }} />
+        <div
+          className="hero-right-fade"
+          style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to right, transparent 70%, rgba(247,244,239,0.85) 100%)',
+            pointerEvents: 'none',
+          }}
+        />
 
         {/* Bottom edge — soft fade */}
         <div style={{
@@ -77,6 +82,7 @@ export default function HeroSection({ ready }: { ready: boolean }) {
           No image. No overlap.
       ══════════════════════════════════════ */}
       <motion.div
+        id="hero-text-panel"
         style={{
           flex: 1,
           display: 'flex',
@@ -272,6 +278,7 @@ export default function HeroSection({ ready }: { ready: boolean }) {
 
         {/* Scroll cue — bottom of right panel */}
         <motion.div
+          id="hero-scroll-cue"
           initial={{ opacity: 0 }}
           animate={ready ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: d + 1.4 }}
@@ -305,12 +312,42 @@ export default function HeroSection({ ready }: { ready: boolean }) {
 
       {/* ══════════════════════════════════════
           MOBILE — stack vertically
+          Image takes 55vh so building is visible.
+          Text panel below with proper padding.
       ══════════════════════════════════════ */}
       <style>{`
         @media (max-width: 860px) {
-          #hero { flex-direction: column !important; height: auto !important; max-height: none !important; min-height: 100vh !important; }
-          #hero > div:first-child { width: 100% !important; height: 52vw !important; min-height: 260px !important; flex-shrink: 0 !important; }
-          #hero > div:first-child > div:last-child { background: linear-gradient(to top, rgba(247,244,239,0.7) 0%, transparent 30%) !important; }
+          #hero {
+            flex-direction: column !important;
+            height: auto !important;
+            max-height: none !important;
+            min-height: 100svh !important;
+          }
+          /* Image panel — tall enough to show the building */
+          #hero-img-panel {
+            width: 100% !important;
+            height: 55vh !important;
+            min-height: 320px !important;
+            flex-shrink: 0 !important;
+          }
+          /* On mobile the building is portrait — center it */
+          #hero-img-panel img {
+            object-position: center 20% !important;
+          }
+          /* Remove the right-edge fade on mobile (irrelevant when stacked) */
+          #hero-img-panel .hero-right-fade {
+            display: none !important;
+          }
+          /* Text panel — full width, comfortable padding */
+          #hero-text-panel {
+            width: 100% !important;
+            padding: 36px 24px 48px !important;
+            justify-content: flex-start !important;
+          }
+          /* Scroll cue — hide on mobile to save space */
+          #hero-scroll-cue {
+            display: none !important;
+          }
         }
       `}</style>
 

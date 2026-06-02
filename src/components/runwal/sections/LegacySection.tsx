@@ -1,4 +1,4 @@
-// LEGACY — Image-led editorial spread.
+﻿// LEGACY — Image-led editorial spread.
 // Full-bleed image top band (~65vh). Sharp, no white fade.
 // Below: clean ivory content band — headline, body, stats in one cohesive row.
 // "generations" in gold. Stats inline with text, not floating right.
@@ -29,11 +29,13 @@ export default function LegacySection() {
           Only a very soft bottom scrim for the
           headline that bleeds across the boundary.
       ══════════════════════════════════════════ */}
-      <div style={{
-        position: 'relative',
-        height: 'clamp(380px, 65vh, 680px)',
-        overflow: 'hidden',
-      }}>
+      <div
+        id="legacy-img-band"
+        style={{
+          position: 'relative',
+          height: 'clamp(380px, 65vh, 680px)',
+          overflow: 'hidden',
+        }}>
         <motion.div style={{ position: 'absolute', inset: 0, y: imgY }}>
           <img
             src="https://static.wixstatic.com/media/cef78c_5e1e9c2d559b4763a014d51afdfca517~mv2.jpg"
@@ -49,10 +51,11 @@ export default function LegacySection() {
         </motion.div>
 
         {/* Bottom scrim — ONLY for the headline overlap zone.
-            Narrow, dark, not ivory. Keeps image rich. */}
+            Narrow, dark, not ivory. Keeps image rich.
+            Stronger on mobile where text is larger relative to image. */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, transparent 55%, rgba(16,14,12,0.55) 100%)',
+          background: 'linear-gradient(to bottom, transparent 45%, rgba(16,14,12,0.65) 100%)',
           pointerEvents: 'none',
         }} />
 
@@ -70,7 +73,7 @@ export default function LegacySection() {
           left: 'clamp(32px,5vw,80px)',
           display: 'flex', alignItems: 'center', gap: 14,
           zIndex: 2,
-        }}>
+        }} id="legacy-eyebrow">
           <span style={{ display: 'block', width: 22, height: 1, background: 'rgba(247,244,239,0.55)', flexShrink: 0 }} />
           <span style={{
             fontFamily: 'Inter, sans-serif',
@@ -175,6 +178,16 @@ export default function LegacySection() {
           "to come." continues the headline.
           Body copy + stats in one horizontal row.
       ══════════════════════════════════════════ */}
+      <style>{`
+        @media (max-width: 860px) {
+          /* Taller image band on mobile so building is visible */
+          #legacy-img-band { height: 62vw !important; min-height: 280px !important; }
+          /* Eyebrow hidden on mobile — saves space */
+          #legacy-eyebrow { display: none !important; }
+          /* Stats wrap to single column on very small screens */
+          #legacy-stats { gap: 24px !important; }
+        }
+      `}</style>
       <div style={{
         padding: '0 clamp(20px,3.5vw,64px)',
         paddingBottom: 'clamp(56px,7vw,96px)',
@@ -238,13 +251,15 @@ export default function LegacySection() {
           </FadeUp>
 
           {/* Stats — inline, generous spacing, no boxes */}
-          <div style={{
-            display: 'flex',
-            gap: 'clamp(32px,4.5vw,72px)',
-            alignItems: 'flex-start',
-            paddingTop: 'clamp(4px,0.5vw,8px)',
-            flexWrap: 'wrap',
-          }}>
+          <div
+            id="legacy-stats"
+            style={{
+              display: 'flex',
+              gap: 'clamp(32px,4.5vw,72px)',
+              alignItems: 'flex-start',
+              paddingTop: 'clamp(4px,0.5vw,8px)',
+              flexWrap: 'wrap',
+            }}>
             {[
               { n: 4,  s: '+', l: 'Decades of Legacy' },
               { n: 80, s: '+', l: 'Landmark Developments' },
