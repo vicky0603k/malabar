@@ -40,7 +40,7 @@ export default function LocationSection() {
       }}>
         <ClipReveal delay={0.05}>
           <h2 style={{
-            fontFamily: 'Cormorant Garamond, serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: 'clamp(44px,7vw,110px)',
             fontWeight: 300, fontStyle: 'italic',
             color: C.charcoal, lineHeight: 0.92,
@@ -51,7 +51,7 @@ export default function LocationSection() {
         </ClipReveal>
         <ClipReveal delay={0.15}>
           <h2 style={{
-            fontFamily: 'Cormorant Garamond, serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: 'clamp(44px,7vw,110px)',
             fontWeight: 300, fontStyle: 'italic',
             color: C.gold, lineHeight: 0.92,
@@ -148,7 +148,7 @@ export default function LocationSection() {
             }}
           >
             <div style={{
-              fontFamily: 'Inter, sans-serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: p.primary ? '0.58rem' : '0.5rem',
               letterSpacing: '0.14em',
               color: p.primary ? C.charcoal : C.taupe,
@@ -160,7 +160,7 @@ export default function LocationSection() {
             </div>
             {p.primary && (
               <div style={{
-                fontFamily: 'Cormorant Garamond, serif',
+                fontFamily: 'GT Ultra Fine, sans-serif',
                 fontSize: '0.62rem', fontStyle: 'italic',
                 color: C.gold, marginTop: 2,
               }}>
@@ -192,7 +192,7 @@ export default function LocationSection() {
         alignItems: 'flex-end', flexWrap: 'wrap', gap: 20,
       }}>
         <p style={{
-          fontFamily: 'Inter, sans-serif', fontSize: '0.75rem',
+          fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.75rem',
           fontWeight: 300, color: 'rgba(43,39,37,0.6)',
           lineHeight: 1.9, maxWidth: 480, letterSpacing: '0.03em',
         }}>
@@ -201,7 +201,7 @@ export default function LocationSection() {
         <a href="https://maps.google.com/?q=Malabar+Hill+Mumbai"
           target="_blank" rel="noopener noreferrer"
           style={{
-            fontFamily: 'Inter, sans-serif', fontSize: '0.58rem',
+            fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.58rem',
             letterSpacing: '0.22em', color: C.taupe,
             textTransform: 'uppercase', textDecoration: 'none',
             display: 'flex', alignItems: 'center', gap: 10,

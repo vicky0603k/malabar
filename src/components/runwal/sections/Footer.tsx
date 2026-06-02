@@ -23,7 +23,7 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <div style={{
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: 9,
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
@@ -33,7 +33,7 @@ export default function Footer() {
             RUNWAL
           </div>
           <div style={{
-            fontFamily: 'Cormorant, serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: 20,
             fontWeight: 300,
             fontStyle: 'italic',
@@ -43,7 +43,7 @@ export default function Footer() {
             Malabar
           </div>
           <div style={{
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: '0.6rem',
             letterSpacing: '0.1em',
             color: C.taupe,
@@ -61,7 +61,7 @@ export default function Footer() {
             Book a Private Preview
           </a>
           <span style={{
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: '0.54rem',
             letterSpacing: '0.12em',
             color: C.taupe,
@@ -74,7 +74,7 @@ export default function Footer() {
       <div style={{ width: '100%', height: 1, background: C.line, opacity: 0.5, marginBottom: 20 }} />
 
       <p style={{
-        fontFamily: 'Inter, sans-serif',
+        fontFamily: 'GT Ultra Fine, sans-serif',
         fontSize: '0.5rem',
         fontWeight: 300,
         color: C.taupe,

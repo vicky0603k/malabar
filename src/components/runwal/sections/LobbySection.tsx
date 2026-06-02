@@ -46,7 +46,7 @@ export default function LobbySection() {
       }}>
         <ClipReveal delay={0.1}>
           <h2 style={{
-            fontFamily: 'Cormorant Garamond, serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: 'clamp(36px,5.5vw,80px)',
             fontWeight: 300, fontStyle: 'italic',
             color: C.charcoal, lineHeight: 1.05,
@@ -56,7 +56,7 @@ export default function LobbySection() {
         </ClipReveal>
         <ClipReveal delay={0.2}>
           <h2 style={{
-            fontFamily: 'Cormorant Garamond, serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: 'clamp(36px,5.5vw,80px)',
             fontWeight: 300, fontStyle: 'italic',
             color: C.gold, lineHeight: 1.05,
@@ -75,7 +75,7 @@ export default function LobbySection() {
       }}>
         <FadeUp delay={0.3} style={{ maxWidth: 380 }}>
           <p style={{
-            fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
+            fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.8rem',
             fontWeight: 300, color: 'rgba(43,39,37,0.62)',
             lineHeight: 1.95, letterSpacing: '0.03em',
           }}>
@@ -97,14 +97,14 @@ export default function LobbySection() {
               borderBottom: i < 3 ? '1px solid rgba(216,206,192,0.25)' : 'none',
             }}>
               <span style={{
-                fontFamily: 'Cormorant Garamond, serif',
+                fontFamily: 'GT Ultra Fine, sans-serif',
                 fontSize: 11, color: C.gold, opacity: 0.7,
                 flexShrink: 0, marginTop: 2, letterSpacing: '0.1em',
               }}>
                 0{i + 1}
               </span>
               <span style={{
-                fontFamily: 'Inter, sans-serif', fontSize: '0.75rem',
+                fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.75rem',
                 fontWeight: 300, color: C.charcoal, letterSpacing: '0.04em',
                 lineHeight: 1.6,
               }}>

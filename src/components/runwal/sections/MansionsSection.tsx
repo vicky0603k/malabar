@@ -28,7 +28,7 @@ export default function MansionsSection() {
           right: 'clamp(-20px,-2vw,0px)',
           top: '50%', transform: 'translateY(-50%)',
           y: numY,
-          fontFamily: 'Cormorant Garamond, serif',
+          fontFamily: 'GT Ultra Fine, sans-serif',
           fontSize: 'clamp(260px,38vw,560px)',
           fontWeight: 300, lineHeight: 0.85,
           color: 'transparent',
@@ -84,7 +84,7 @@ export default function MansionsSection() {
         <div style={{ marginBottom: 40 }}>
           <ClipReveal delay={0.15}>
             <h2 style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: 'clamp(36px,5vw,72px)',
               fontWeight: 300, fontStyle: 'italic',
               color: C.charcoal, lineHeight: 1.05,
@@ -94,7 +94,7 @@ export default function MansionsSection() {
           </ClipReveal>
           <ClipReveal delay={0.25}>
             <h2 style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: 'clamp(36px,5vw,72px)',
               fontWeight: 300, fontStyle: 'italic',
               color: C.gold, lineHeight: 1.05,
@@ -106,14 +106,14 @@ export default function MansionsSection() {
 
         <FadeUp delay={0.4}>
           <p style={{
-            fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
+            fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.8rem',
             fontWeight: 300, color: 'rgba(43,39,37,0.6)',
             lineHeight: 1.95, maxWidth: 380, marginBottom: 12,
           }}>
             A singular vertical estate for a select few.
           </p>
           <p style={{
-            fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
+            fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.8rem',
             fontWeight: 300, color: 'rgba(43,39,37,0.6)',
             lineHeight: 1.95, maxWidth: 380,
           }}>
@@ -134,7 +134,7 @@ export default function MansionsSection() {
                 background: C.gold, flexShrink: 0,
               }} />
               <span style={{
-                fontFamily: 'Inter, sans-serif', fontSize: '0.72rem',
+                fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.72rem',
                 fontWeight: 300, color: C.charcoal, letterSpacing: '0.04em',
               }}>
                 {item}
@@ -153,7 +153,7 @@ export default function MansionsSection() {
         position: 'absolute', left: 'clamp(16px,2vw,28px)', top: '50%',
         transform: 'translateY(-50%) rotate(-90deg)',
         transformOrigin: 'center',
-        fontFamily: 'Inter, sans-serif', fontSize: '0.48rem',
+        fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.48rem',
         letterSpacing: '0.3em', color: 'rgba(43,39,37,0.2)',
         textTransform: 'uppercase', whiteSpace: 'nowrap',
         zIndex: 1,

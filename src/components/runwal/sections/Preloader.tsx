@@ -25,7 +25,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
       {/* Ghost monogram */}
       <div style={{
         position: 'absolute',
-        fontFamily: 'Cormorant Garamond, serif',
+        fontFamily: 'GT Ultra Fine, sans-serif',
         fontSize: 'clamp(120px,18vw,220px)',
         fontWeight: 300,
         color: 'transparent',
@@ -43,7 +43,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: EASE }}
           style={{
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: '0.54rem',
             letterSpacing: '0.4em',
             color: C.taupe,
@@ -60,7 +60,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
             animate={{ y: '0%' }}
             transition={{ duration: 1.1, delay: 0.6, ease: EASE }}
             style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: 'clamp(40px,6vw,72px)',
               fontWeight: 300,
               fontStyle: 'italic',
@@ -91,7 +91,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.9 }}
           style={{
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: '0.5rem',
             letterSpacing: '0.3em',
             color: C.taupe,

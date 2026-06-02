@@ -76,7 +76,7 @@ export default function LegacySection() {
         }} id="legacy-eyebrow">
           <span style={{ display: 'block', width: 22, height: 1, background: 'rgba(247,244,239,0.55)', flexShrink: 0 }} />
           <span style={{
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: 'clamp(8px,0.58vw,10px)',
             fontWeight: 400,
             letterSpacing: '0.36em',

@@ -61,7 +61,7 @@ export default function PanoramaSection() {
           zIndex: 2,
         }}>
           <span style={{
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: '0.52rem',
             letterSpacing: '0.3em',
             color: 'rgba(247,244,239,0.55)',
@@ -79,7 +79,7 @@ export default function PanoramaSection() {
         }}>
           <ClipReveal delay={0.1}>
             <p style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: 'clamp(22px,3vw,44px)',
               fontWeight: 300,
               fontStyle: 'italic',
@@ -101,7 +101,7 @@ export default function PanoramaSection() {
             ].map(item => (
               <div key={item.l}>
                 <div style={{
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: 'GT Ultra Fine, sans-serif',
                   fontSize: '0.54rem',
                   letterSpacing: '0.22em',
                   color: C.gold,
@@ -111,7 +111,7 @@ export default function PanoramaSection() {
                   {item.l}
                 </div>
                 <div style={{
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: 'GT Ultra Fine, sans-serif',
                   fontSize: '0.62rem',
                   color: C.taupe,
                   letterSpacing: '0.06em',

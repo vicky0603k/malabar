@@ -50,7 +50,7 @@ export default function RaritySection() {
 
         <ClipReveal delay={0.15}>
           <h2 style={{
-            fontFamily: 'Cormorant Garamond, serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: 'clamp(32px,5vw,72px)',
             fontWeight: 300,
             fontStyle: 'italic',
@@ -63,7 +63,7 @@ export default function RaritySection() {
         </ClipReveal>
         <ClipReveal delay={0.25}>
           <h2 style={{
-            fontFamily: 'Cormorant Garamond, serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: 'clamp(32px,5vw,72px)',
             fontWeight: 300,
             fontStyle: 'italic',
@@ -76,7 +76,7 @@ export default function RaritySection() {
 
         <FadeUp delay={0.4} style={{ marginTop: 44 }}>
           <p style={{
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: '0.8rem',
             fontWeight: 300,
             color: C.mid,
@@ -87,7 +87,7 @@ export default function RaritySection() {
             Runwal Malabar is not simply a residence.
           </p>
           <p style={{
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'GT Ultra Fine, sans-serif',
             fontSize: '0.8rem',
             fontWeight: 300,
             color: C.mid,

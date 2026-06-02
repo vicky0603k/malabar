@@ -64,7 +64,7 @@ export default function ArrivalSection() {
         <div style={{ marginBottom: 40 }}>
           <ClipReveal delay={0.15}>
             <h2 style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: 'clamp(32px,4.5vw,68px)',
               fontWeight: 300, fontStyle: 'italic',
               color: C.charcoal, lineHeight: 1.1,
@@ -74,7 +74,7 @@ export default function ArrivalSection() {
           </ClipReveal>
           <ClipReveal delay={0.25}>
             <h2 style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: 'clamp(32px,4.5vw,68px)',
               fontWeight: 300, fontStyle: 'italic',
               color: C.gold, lineHeight: 1.1,
@@ -86,7 +86,7 @@ export default function ArrivalSection() {
 
         <FadeUp delay={0.4}>
           <p style={{
-            fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
+            fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.8rem',
             fontWeight: 300, color: 'rgba(43,39,37,0.62)',
             lineHeight: 1.95, maxWidth: 400, letterSpacing: '0.03em',
           }}>
@@ -112,7 +112,7 @@ export default function ArrivalSection() {
                 background: C.gold, flexShrink: 0, opacity: 0.7,
               }} />
               <span style={{
-                fontFamily: 'Inter, sans-serif', fontSize: '0.72rem',
+                fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.72rem',
                 fontWeight: 300, color: C.charcoal, letterSpacing: '0.04em',
               }}>
                 {item}

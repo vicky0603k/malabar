@@ -43,7 +43,7 @@ export default function EnquirySection() {
 
           <ClipReveal delay={0.15}>
             <h2 style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: 'clamp(36px,5vw,72px)',
               fontWeight: 300, fontStyle: 'italic',
               color: C.charcoal, lineHeight: 1.1, marginBottom: 8,
@@ -53,7 +53,7 @@ export default function EnquirySection() {
           </ClipReveal>
           <ClipReveal delay={0.25}>
             <h2 style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: 'clamp(36px,5vw,72px)',
               fontWeight: 300, fontStyle: 'italic',
               color: C.gold, lineHeight: 1.1,
@@ -64,7 +64,7 @@ export default function EnquirySection() {
 
           <FadeUp delay={0.4} style={{ marginTop: 36 }}>
             <p style={{
-              fontFamily: 'Inter, sans-serif', fontSize: '0.75rem',
+              fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.75rem',
               fontWeight: 300, color: 'rgba(43,39,37,0.55)',
               lineHeight: 1.9, maxWidth: 340, letterSpacing: '0.03em',
             }}>
@@ -77,7 +77,7 @@ export default function EnquirySection() {
             <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer"
               style={{
                 display: 'flex', alignItems: 'center', gap: 12,
-                fontFamily: 'Inter, sans-serif', fontSize: '0.6rem',
+                fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.6rem',
                 letterSpacing: '0.2em', color: C.taupe,
                 textTransform: 'uppercase', textDecoration: 'none',
                 transition: 'color .3s ease',
@@ -93,7 +93,7 @@ export default function EnquirySection() {
             <a href="tel:+919999999999"
               style={{
                 display: 'flex', alignItems: 'center', gap: 12,
-                fontFamily: 'Inter, sans-serif', fontSize: '0.6rem',
+                fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.6rem',
                 letterSpacing: '0.2em', color: C.taupe,
                 textTransform: 'uppercase', textDecoration: 'none',
                 transition: 'color .3s ease',
@@ -120,7 +120,7 @@ export default function EnquirySection() {
               <div key={f.name} style={{ marginBottom: 32 }}>
                 <label style={{
                   display: 'block',
-                  fontFamily: 'Inter, sans-serif', fontSize: '0.52rem',
+                  fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.52rem',
                   letterSpacing: '0.28em', color: C.taupe,
                   textTransform: 'uppercase', marginBottom: 8,
                 }}>
@@ -139,7 +139,7 @@ export default function EnquirySection() {
             <div style={{ marginBottom: 32 }}>
               <label style={{
                 display: 'block',
-                fontFamily: 'Inter, sans-serif', fontSize: '0.52rem',
+                fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.52rem',
                 letterSpacing: '0.28em', color: C.taupe,
                 textTransform: 'uppercase', marginBottom: 8,
               }}>
@@ -155,7 +155,7 @@ export default function EnquirySection() {
             <div style={{ marginBottom: 48 }}>
               <label style={{
                 display: 'block',
-                fontFamily: 'Inter, sans-serif', fontSize: '0.52rem',
+                fontFamily: 'GT Ultra Fine, sans-serif', fontSize: '0.52rem',
                 letterSpacing: '0.28em', color: C.taupe,
                 textTransform: 'uppercase', marginBottom: 8,
               }}>

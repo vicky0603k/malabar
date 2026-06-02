@@ -45,7 +45,7 @@ export default function ParkingSection() {
 
           <ClipReveal delay={0.15}>
             <h2 style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: 'clamp(30px,4.2vw,64px)',
               fontWeight: 300,
               fontStyle: 'italic',
@@ -58,7 +58,7 @@ export default function ParkingSection() {
           </ClipReveal>
           <ClipReveal delay={0.25}>
             <h2 style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: 'clamp(30px,4.2vw,64px)',
               fontWeight: 300,
               fontStyle: 'italic',
@@ -71,7 +71,7 @@ export default function ParkingSection() {
 
           <FadeUp delay={0.4} style={{ marginTop: 28 }}>
             <p style={{
-              fontFamily: 'Inter, sans-serif',
+              fontFamily: 'GT Ultra Fine, sans-serif',
               fontSize: '0.78rem',
               fontWeight: 300,
               color: C.mid,
@@ -100,7 +100,7 @@ export default function ParkingSection() {
                 alignItems: 'flex-start',
               }}>
                 <span style={{
-                  fontFamily: 'Cormorant Garamond, serif',
+                  fontFamily: 'GT Ultra Fine, sans-serif',
                   fontSize: 11,
                   color: C.gold,
                   opacity: 0.65,
@@ -111,7 +111,7 @@ export default function ParkingSection() {
                 </span>
                 <div>
                   <div style={{
-                    fontFamily: 'Inter, sans-serif',
+                    fontFamily: 'GT Ultra Fine, sans-serif',
                     fontSize: '0.75rem',
                     fontWeight: 400,
                     color: C.charcoal,
@@ -121,7 +121,7 @@ export default function ParkingSection() {
                     {f.l}
                   </div>
                   <div style={{
-                    fontFamily: 'Inter, sans-serif',
+                    fontFamily: 'GT Ultra Fine, sans-serif',
                     fontSize: '0.65rem',
                     fontWeight: 300,
                     color: C.taupe,
